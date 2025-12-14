@@ -26,6 +26,7 @@ public class Gun
     public float barrelLength;
     public SpriteEffects fx;
     public int ammoCount = 30;
+    public string facing;
 
     public Gun()
     {
@@ -38,6 +39,18 @@ public class Gun
 
     public void Update(float dt, Player player, MouseState mouseState, Vector2 mousePosition)
     {
+        // Facing
+        if (mousePosition.X > pos.X + width/2)
+        {
+            facing = "right";
+            fx = SpriteEffects.None;
+        }
+        else if (mousePosition.X < pos.X)
+        {
+            facing = "left";
+            fx = SpriteEffects.FlipVertically;
+        }
+
         // Time between each Shot
         if (shotTimer != 0)
         {
@@ -56,6 +69,7 @@ public class Gun
             Assets.shoot.Play();
             muzzleFlashAngle = new Random().Next(-1, 3);
             ammoCount -= 1;
+            Casing.casings.Add(new Casing(this));
         }
 
         // Reload

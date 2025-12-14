@@ -81,6 +81,8 @@ public class GameRoot : Game
 
         Bullet.Update(dt, mousePosition);
 
+        Casing.Update(dt);
+
         previousKs = ks;
 
         base.Update(gameTime);
@@ -101,6 +103,9 @@ public class GameRoot : Game
 
         // Gun
         gun.Draw(_spriteBatch);
+
+        // Draw
+        Casing.Draw(_spriteBatch);
 
         // Bullet
         Bullet.Draw(_spriteBatch);

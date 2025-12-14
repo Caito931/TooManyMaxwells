@@ -19,12 +19,16 @@ public class Assets
     public static Texture2D maxwellAtlas;
     public static Texture2D ak47;
     public static Texture2D bullet;
+    public static Texture2D casing;
     public static Texture2D muzzleFlash;
-    
+
     // List SoundEffect
     public static List<SoundEffect> sounds = new List<SoundEffect>();
     public static SoundEffect shoot;
     public static SoundEffect reload;
+
+    // White Pixel
+    public static Texture2D whitePixel;
 
     public static void Load(ContentManager Content, GraphicsDevice graphicsDevice)
     {
@@ -35,6 +39,7 @@ public class Assets
         maxwellAtlas = Content.Load<Texture2D>("maxwellAtlas");
         ak47 = Content.Load<Texture2D>("ak47");
         bullet = Content.Load<Texture2D>("bullet");
+        casing = Content.Load<Texture2D>("casing");
         muzzleFlash = Content.Load<Texture2D>("muzzleFlash");
 
         textures.Add(background);
@@ -42,6 +47,7 @@ public class Assets
         textures.Add(maxwellAtlas);
         textures.Add(ak47);
         textures.Add(bullet);
+        textures.Add(casing);
         textures.Add(muzzleFlash);
 
         shoot = Content.Load<SoundEffect>("shoot");
@@ -49,6 +55,9 @@ public class Assets
 
         sounds.Add(shoot);
         sounds.Add(reload);
+
+        whitePixel = new Texture2D(graphicsDevice, 1, 1);
+        whitePixel.SetData([Color.White]);
     }
 
     public static void Dispose()

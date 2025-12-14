@@ -40,3 +40,5 @@
 /home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/muzzleFlash.xnb
 /home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/reload.xnb
 /home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/Roboto.xnb
+/home/caio/Programing/TooManyMaxwells/obj/Debug/net8.0/TooManyMaxwells.sourcelink.json
+/home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/casing.xnb

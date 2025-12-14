@@ -7,6 +7,7 @@
     <File>/home/caio/Programing/TooManyMaxwells/Content/ak47.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/background.jpg</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/bullet.png</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/casing.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/maxwellAtlas.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/muzzleFlash.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/reload.wav</File>
@@ -15,6 +16,7 @@
     <File>/home/caio/Programing/TooManyMaxwells/Content/walter.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
