@@ -75,13 +75,38 @@ public class GameRoot : Game
         MouseState mouseState = Mouse.GetState();
         Vector2 mousePosition = new Vector2(mouseState.X, mouseState.Y);
 
+        // Spawn Enemy
+        if (ks.IsKeyDown(Keys.E) && !previousKs.IsKeyDown(Keys.E))
+        {
+            Enemy.enemies.Add(new Enemy());
+        }
+
         player.Update(dt);
 
         gun.Update(dt, player, mouseState, mousePosition);
 
+        // Bullet and Enemy Collision
+        for (int i = Enemy.enemies.Count - 1; i >= 0; i--)
+        { 
+            for (int j = Bullet.bullets.Count - 1; j >= 0; j--)
+            {
+                var enemy = Enemy.enemies[i];
+                var bullet = Bullet.bullets[j];
+
+                if (bullet.hitBox.Intersects(enemy.hitBox))
+                {
+                    enemy.health -= bullet.damage;
+                    enemy.Flash();
+                    Bullet.bullets.RemoveAt(j);
+                }
+            }
+        }
+
         Bullet.Update(dt, mousePosition);
 
         Casing.Update(dt);
+
+        Enemy.Update(dt, player);
 
         previousKs = ks;
 
@@ -98,17 +123,20 @@ public class GameRoot : Game
         // Background
         _spriteBatch.Draw(Assets.background, new Vector2(0,0), Color.White);
 
+        // Casing
+        Casing.Draw(_spriteBatch);
+
         // Player
         player.Draw(_spriteBatch);
 
         // Gun
         gun.Draw(_spriteBatch);
 
-        // Draw
-        Casing.Draw(_spriteBatch);
-
         // Bullet
         Bullet.Draw(_spriteBatch);
+
+        // Enemy
+        Enemy.Draw(_spriteBatch);
 
         _spriteBatch.End();
         

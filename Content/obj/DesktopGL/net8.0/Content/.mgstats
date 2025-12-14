@@ -3,7 +3,7 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "/home/caio/Programing/TooManyMaxwells/Content/background.jpg","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/background.xnb","TextureProcessor","Texture2DContent",783690,6822485,0.3098125
 "/home/caio/Programing/TooManyMaxwells/Content/bullet.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/bullet.xnb","TextureProcessor","Texture2DContent",2079,5285,0.0023566
 "/home/caio/Programing/TooManyMaxwells/Content/casing.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/casing.xnb","TextureProcessor","Texture2DContent",2702,6485,0.1200472
-"/home/caio/Programing/TooManyMaxwells/Content/maxwellAtlas.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/maxwellAtlas.xnb","TextureProcessor","Texture2DContent",2256889,8960085,0.3548699
+"/home/caio/Programing/TooManyMaxwells/Content/maxwellAtlas.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/maxwellAtlas.xnb","TextureProcessor","Texture2DContent",2104755,8960085,0.4503589
 "/home/caio/Programing/TooManyMaxwells/Content/muzzleFlash.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/muzzleFlash.xnb","TextureProcessor","Texture2DContent",6030,10085,0.1444075
 "/home/caio/Programing/TooManyMaxwells/Content/reload.wav","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/reload.xnb","SoundEffectProcessor","SoundEffectContent",129340,129401,0.1565987
 "/home/caio/Programing/TooManyMaxwells/Content/Roboto.spritefont","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/Roboto.xnb","FontDescriptionProcessor","SpriteFontContent",2009,70681,0.2275301

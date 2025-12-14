@@ -27,6 +27,7 @@ public class Gun
     public SpriteEffects fx;
     public int ammoCount = 30;
     public string facing;
+    public int damage;
 
     public Gun()
     {
@@ -35,6 +36,7 @@ public class Gun
         barrelLength = width * 0.55f;
         pos = new Vector2(GameRoot.winWidth/2 - width/2, GameRoot.winHeight/2 - height/2);
         hitBox = new Rectangle((int)pos.X, (int)pos.Y, (int)width, (int)height);
+        damage = 20;
     }
 
     public void Update(float dt, Player player, MouseState mouseState, Vector2 mousePosition)
@@ -73,7 +75,7 @@ public class Gun
         }
 
         // Reload
-        if (GameRoot.ks.IsKeyDown(Keys.R) && !GameRoot.previousKs.IsKeyDown(Keys.R) && ammoCount <= 0)
+        if (GameRoot.ks.IsKeyDown(Keys.R) && !GameRoot.previousKs.IsKeyDown(Keys.R))
         {
             ammoCount = 30;
             Assets.reload.Play();

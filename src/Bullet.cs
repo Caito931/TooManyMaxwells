@@ -20,12 +20,15 @@ public class Bullet
     public Vector2 direction;
     public float angle;
     public int dirX;
+    public int damage;
 
     public Bullet(Gun gun, Player player)
     {
         direction = gun.direction;
         angle = gun.angle;
         velocity = direction * speed;
+
+        damage = gun.damage;
 
         width = Assets.bullet.Width/2;
         height = Assets.bullet.Height/2;
@@ -41,6 +44,8 @@ public class Bullet
         for (int i = bullets.Count - 1; i >= 0; i--)
         {
             var bullet = bullets[i];
+
+            bullet.hitBox = new Rectangle((int)bullet.pos.X, (int)bullet.pos.Y, (int)bullet.width, (int)bullet.height);
 
             // Movment
             bullet.pos += bullet.velocity * dt;

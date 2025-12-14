@@ -11,12 +11,27 @@ public class Animation
 {
     public Texture2D atlas;
     public Vector2 pos;
+    public Color color;
     public float FPS;
     public int counter;
     public int activeFrame;
     public int numFrames;
+    public float scale;
     public float w; // width
     public float h; // height
+
+    public Animation(Texture2D Atlas, float Scale, Vector2 Pos, float Fps, int Counter, int ActiveFrame, int NumFrames, float Width, float Height)
+    {
+        atlas = Atlas;
+        scale = Scale;
+        pos = Pos;
+        FPS = Fps;
+        counter = Counter;
+        activeFrame = ActiveFrame;
+        numFrames = NumFrames;
+        w = Width;
+        h = Height; 
+    }
 
     public void Update(float dt)
     {
@@ -36,10 +51,10 @@ public class Animation
             atlas,
             pos,
             new Rectangle(activeFrame * (int)w, 0, (int)w, (int)h),
-            Color.White,
+            color,
             0f,
             Vector2.Zero,
-            1f,
+            scale,
             0f,
             0f
         );

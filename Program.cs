@@ -8,8 +8,8 @@ game.Run();
 // Adicionar Bala (X)
 // Adicionar Recarregamento (X)
 // Adicionar Efeitos de Flash (X)
-// Adicionar Efeitos de Munição
-// Adicionar Maxwell
+// Adicionar Efeitos de Munição (X)
+// Adicionar Maxwell (X)
 // Adicionar Waves
 // Adicionar Menu
 // Adicionar ScreenShake
