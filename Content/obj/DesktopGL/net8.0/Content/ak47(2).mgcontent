@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>/home/caio/Programing/TooManyMaxwells/Content/casing.png</SourceFile>
-  <SourceTime>2025-12-14T13:55:44.1891083-04:00</SourceTime>
-  <DestFile>/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/casing.xnb</DestFile>
-  <DestTime>2025-12-14T18:58:07.2956207-04:00</DestTime>
+  <SourceFile>/home/caio/Programing/TooManyMaxwells/Content/ak47(2).png</SourceFile>
+  <SourceTime>2025-12-14T18:18:33.0630982-04:00</SourceTime>
+  <DestFile>/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/ak47(2).xnb</DestFile>
+  <DestTime>2025-12-14T18:19:50.3424653-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2025-06-02T06:31:02-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

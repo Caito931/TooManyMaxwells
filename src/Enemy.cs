@@ -20,6 +20,7 @@ public class Enemy
     public int health;
     public float flashTime = 0.07f;
     public float flashTimer = 0f;
+    public Vector2 Target;
 
     public Enemy()
     {
@@ -47,6 +48,8 @@ public class Enemy
         speed = 100f;
         hitBox = new Rectangle((int)pos.X, (int)pos.Y, (int)width, (int)height);
         health = 100;
+
+        Target = new Vector2(GameRoot.winWidth/2f, GameRoot.winHeight/2f);
     }
 
     public static void Update(float dt, Player player)
@@ -73,11 +76,11 @@ public class Enemy
                 Enemy.enemies.RemoveAt(i);
             }
 
-            if (enemy.pos.X < player.pos.X)
+            if (enemy.pos.X < enemy.Target.X)
             {
                 enemy.pos.X += enemy.speed * dt;
             } 
-            else if (enemy.pos.X > player.pos.X)
+            else if (enemy.pos.X > enemy.Target.X)
             {
                 enemy.pos.X -= enemy.speed * dt;
             }
@@ -86,11 +89,11 @@ public class Enemy
             // {
             //     enemy.pos.Y = player.pos.Y;
             // }
-            if (enemy.pos.Y < player.pos.Y)
+            if (enemy.pos.Y < enemy.Target.Y)
             {
                 enemy.pos.Y += enemy.speed * dt;
             } 
-            else if (enemy.pos.Y > player.pos.Y)
+            else if (enemy.pos.Y > enemy.Target.Y)
             {
                 enemy.pos.Y -= enemy.speed * dt;
             }

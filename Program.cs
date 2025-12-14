@@ -10,9 +10,10 @@ game.Run();
 // Adicionar Efeitos de Flash (X)
 // Adicionar Efeitos de Munição (X)
 // Adicionar Maxwell (X)
+// Adicionar Doge (X)
 // Adicionar Waves
 // Adicionar Menu
 // Adicionar ScreenShake
-// Adicionar Vida e Game Over
+// Adicionar Vida e Game Over do Doge
 // Consertar o giro da Arma
 // Adicionar Score

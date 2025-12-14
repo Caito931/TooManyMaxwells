@@ -42,3 +42,8 @@
 /home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/Roboto.xnb
 /home/caio/Programing/TooManyMaxwells/obj/Debug/net8.0/TooManyMaxwells.sourcelink.json
 /home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/casing.xnb
+/home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/m4a1.xnb
+/home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/shoot2.xnb
+/home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/ak47(2).xnb
+/home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/walter(2).xnb
+/home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/doge.xnb

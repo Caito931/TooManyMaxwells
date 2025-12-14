@@ -28,11 +28,24 @@ public class Gun
     public int ammoCount = 30;
     public string facing;
     public int damage;
+    public static GunType[] gunTypes = [GunType.M4a1, GunType.Ak47];
+    public int gunTypeIndex = 0;
+    public GunType type;
 
     public Gun()
     {
-        width = Assets.ak47.Width/2;
-        height = Assets.ak47.Height/2;
+        type = GunType.M4a1;
+        if (type == GunType.M4a1)
+        {
+            width = Assets.m4a1.Width/2;
+            height = Assets.m4a1.Height/2;
+        }
+        if (type == GunType.Ak47)
+        {
+            width = Assets.ak47.Width/2;
+            height = Assets.ak47.Height/2;
+        }
+
         barrelLength = width * 0.55f;
         pos = new Vector2(GameRoot.winWidth/2 - width/2, GameRoot.winHeight/2 - height/2);
         hitBox = new Rectangle((int)pos.X, (int)pos.Y, (int)width, (int)height);
@@ -41,6 +54,13 @@ public class Gun
 
     public void Update(float dt, Player player, MouseState mouseState, Vector2 mousePosition)
     {
+        // Switch Type
+        if (GameRoot.ks.IsKeyDown(Keys.F1) && !GameRoot.previousKs.IsKeyDown(Keys.F1))
+        {
+            gunTypeIndex = (gunTypeIndex + 1) % gunTypes.Length;
+            type = gunTypes[gunTypeIndex];
+        }
+
         // Facing
         if (mousePosition.X > pos.X + width/2)
         {
@@ -68,10 +88,18 @@ public class Gun
             Bullet.bullets.Add(new Bullet(this, player));
             recoilVelocity += RecoilKick;
             shotTimer = shotTime;
-            Assets.shoot.Play();
             muzzleFlashAngle = new Random().Next(-1, 3);
             ammoCount -= 1;
             Casing.casings.Add(new Casing(this));
+
+            if (type == GunType.M4a1)
+            {
+                Assets.shoot2.Play();
+            }
+            else if (type == GunType.Ak47)
+            {
+                Assets.shoot.Play();
+            }
         }
 
         // Reload
@@ -120,8 +148,21 @@ public class Gun
         fx = SpriteEffects.None;
         float drawAngle = angle;
 
+        Texture2D drawTexture = Assets.whitePixel;
+
+        if (type == GunType.M4a1)
+        {
+            drawTexture = Assets.m4a1;
+            barrelLength = width * 0.55f;
+        }
+        else if (type == GunType.Ak47)
+        {
+            drawTexture = Assets.ak47;
+            barrelLength = width * 0.4f;
+        }
+
         spriteBatch.Draw(
-            Assets.ak47, 
+            drawTexture, 
             pos, 
             null,
             Color.White, 
@@ -153,5 +194,11 @@ public class Gun
 
         // Ammo
         spriteBatch.DrawString(Assets.font, $"Ammo: {ammoCount}", new Vector2(15, GameRoot.winHeight - 50), Color.White);
+    }
+
+    public enum GunType
+    {
+        Ak47,
+        M4a1
     }
 }

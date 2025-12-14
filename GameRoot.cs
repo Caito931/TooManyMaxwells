@@ -85,6 +85,12 @@ public class GameRoot : Game
 
         gun.Update(dt, player, mouseState, mousePosition);
 
+        Bullet.Update(dt, mousePosition);
+
+        Casing.Update(dt);
+
+        Enemy.Update(dt, player);
+
         // Bullet and Enemy Collision
         for (int i = Enemy.enemies.Count - 1; i >= 0; i--)
         { 
@@ -101,12 +107,6 @@ public class GameRoot : Game
                 }
             }
         }
-
-        Bullet.Update(dt, mousePosition);
-
-        Casing.Update(dt);
-
-        Enemy.Update(dt, player);
 
         previousKs = ks;
 
@@ -137,6 +137,8 @@ public class GameRoot : Game
 
         // Enemy
         Enemy.Draw(_spriteBatch);
+
+        _spriteBatch.Draw(Assets.doge, new Vector2(winWidth/2 - Assets.doge.Width/2, winHeight/2 - Assets.doge.Height/2), Color.White);
 
         _spriteBatch.End();
         
