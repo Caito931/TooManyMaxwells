@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/ak47.png</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/background.jpg</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/bullet.png</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/maxwellAtlas.png</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/muzzleFlash.png</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/reload.wav</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/Roboto.spritefont</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/shoot.wav</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/walter.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
