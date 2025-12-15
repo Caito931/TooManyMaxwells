@@ -1,4 +1,5 @@
 using System;
+using System.Data;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -35,21 +36,7 @@ public class Gun
     public Gun()
     {
         type = GunType.Hkg36;
-        if (type == GunType.M4a1)
-        {
-            width = Assets.m4a1.Width/2;
-            height = Assets.m4a1.Height/2;
-        }
-        if (type == GunType.Ak47)
-        {
-            width = Assets.ak47.Width/2;
-            height = Assets.ak47.Height/2;
-        }
-        if (type == GunType.Hkg36)
-        {
-            width = Assets.hkg36.Width/2;
-            height = Assets.hkg36.Height/2;
-        }
+        UpdateGunStats();
 
         barrelLength = width * 0.55f;
         pos = new Vector2(GameRoot.winWidth/2 - width/2, GameRoot.winHeight/2 - height/2);
@@ -64,6 +51,7 @@ public class Gun
         {
             gunTypeIndex = (gunTypeIndex + 1) % gunTypes.Length;
             type = gunTypes[gunTypeIndex];
+            UpdateGunStats();
         }
         
         // Time between each Shot
@@ -167,7 +155,7 @@ public class Gun
         if (type == GunType.M4a1)
         {
             drawTexture = Assets.m4a1;
-            barrelLength = width/2f * 1.1f;
+            barrelLength = width/2f * 0.7f;
                 muzzlePos =  new Vector2(
                 pos.X + direction.X * barrelLength * 1.5f + 8,
                 pos.Y + direction.Y * barrelLength * 1.5f - 12
@@ -176,7 +164,7 @@ public class Gun
         if (type == GunType.Ak47)
         {
             drawTexture = Assets.ak47;
-            barrelLength = width/2f;
+            barrelLength = width/2f * 0.7f;
             muzzlePos =  new Vector2(
                 pos.X + direction.X * barrelLength * 1.5f,
                 pos.Y + direction.Y * barrelLength * 1.5f - 20
@@ -226,6 +214,32 @@ public class Gun
 
         // Ammo
         spriteBatch.DrawString(Assets.font, $"Ammo: {ammoCount}", new Vector2(15, GameRoot.winHeight - 50), Color.White);
+    }
+
+    public void UpdateGunStats()
+    {
+        if (type == GunType.M4a1)
+        {
+            width = Assets.m4a1.Width/2;
+            height = Assets.m4a1.Height/2;
+            shotTime = 0.06f;
+            damage = 12;
+        }
+        if (type == GunType.Ak47)
+        {
+            width = Assets.ak47.Width/2;
+            height = Assets.ak47.Height/2;
+            shotTime = 0.1f;
+            damage = 20;
+        }
+        if (type == GunType.Hkg36)
+        {
+            width = Assets.hkg36.Width/2;
+            height = Assets.hkg36.Height/2;
+            shotTime = 0.08f;
+            damage = 15;
+        }
+
     }
 
     public enum GunType
