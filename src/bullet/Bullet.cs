@@ -34,10 +34,11 @@ public class Bullet
 
         width = texture.Width/2;
         height = texture.Height/2;
-        pos = new Vector2(
-            gun.pos.X + gun.direction.X * gun.barrelLength, 
-            gun.pos.Y + gun.direction.Y * gun.barrelLength - 12
-        );
+        // pos = new Vector2(
+        //     gun.pos.X + gun.direction.X * gun.barrelLength, 
+        //     gun.pos.Y + gun.direction.Y * gun.barrelLength
+        // );
+        pos = gun.muzzlePos;
         hitBox = new Rectangle((int)pos.X, (int)pos.Y, (int)width, (int)height);
     }
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -13,7 +14,10 @@ public class GameRoot : Game
     public static KeyboardState ks;
     public static KeyboardState previousKs;
     public Player player;
-    public Gun gun;
+    public static Gun hkg36;
+    public static Gun m4a1;
+    public static Gun ak47;
+    public static Gun aa12;
 
     public GameRoot()
     {
@@ -45,8 +49,20 @@ public class GameRoot : Game
         // Player
         player = new Player();
 
-        // Gun
-        gun = new Gun();
+        // Hkg36
+        hkg36 = new Hkg36();
+
+        // M4a1
+        m4a1 = new M4a1();
+
+        // Ak47
+        ak47 = new Ak47();
+
+        // Aa12
+        aa12 = new Aa12();
+
+        // Guns
+        Gun.LoadGuns();
 
         // TODO: use this.Content to load your game content here
     }
@@ -81,16 +97,36 @@ public class GameRoot : Game
             Enemy.enemies.Add(new Enemy());
         }
 
+        // Player
         player.Update(dt);
 
-        gun.Update(dt, player, mouseState, mousePosition);
+        // Guns
+        for (int i = 0; i < Gun.guns.Count; i++)
+        {
+            Gun.guns[i].Update(dt, player, mouseState, mousePosition);
+            if (i != Gun.gunIndex)
+            {
+                Gun.guns[i].selected = false;
+            }
+            else { Gun.guns[i].selected = true; }
+        }
+        
+        // Change Gun
+        if (ks.IsKeyDown(Keys.F1) && !previousKs.IsKeyDown(Keys.F1)) 
+        { 
+            Gun.gunIndex = (Gun.gunIndex + 1) % Gun.guns.Count; 
+        }
 
+        // Bullet
         Bullet.Update(dt, mousePosition);
 
+        // Casing
         Casing.Update(dt);
 
+        // Shell
         Shell.Update(dt);
 
+        // Enemy
         Enemy.Update(dt, player);
 
         // Bullet and Enemy Collision
@@ -134,8 +170,8 @@ public class GameRoot : Game
         // Player
         player.Draw(_spriteBatch);
 
-        // Gun
-        gun.Draw(_spriteBatch);
+        // Guns
+        foreach (Gun gun in Gun.guns) { gun.Draw(_spriteBatch); }
 
         // Bullet
         Bullet.Draw(_spriteBatch);
