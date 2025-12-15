@@ -47,3 +47,5 @@
 /home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/ak47(2).xnb
 /home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/walter(2).xnb
 /home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/doge.xnb
+/home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/hkg36.xnb
+/home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/shoot3.xnb

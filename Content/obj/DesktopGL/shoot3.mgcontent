@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>/home/caio/Programing/TooManyMaxwells/Content/shoot2.wav</SourceFile>
-  <SourceTime>2025-05-24T17:32:01.2326411-04:00</SourceTime>
-  <DestFile>/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/shoot2.xnb</DestFile>
-  <DestTime>2025-12-14T20:53:35.8100676-04:00</DestTime>
+  <SourceFile>/home/caio/Programing/TooManyMaxwells/Content/shoot3.wav</SourceFile>
+  <SourceTime>2025-12-14T20:49:17.0427317-04:00</SourceTime>
+  <DestFile>/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/shoot3.xnb</DestFile>
+  <DestTime>2025-12-14T20:53:35.8802745-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2025-06-02T06:31:02-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

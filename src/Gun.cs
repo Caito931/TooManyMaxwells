@@ -28,7 +28,7 @@ public class Gun
     public int ammoCount = 30;
     public string facing;
     public int damage;
-    public static GunType[] gunTypes = [GunType.M4a1, GunType.Ak47];
+    public static GunType[] gunTypes = [GunType.M4a1, GunType.Ak47, GunType.Hkg36];
     public int gunTypeIndex = 0;
     public GunType type;
 
@@ -44,6 +44,11 @@ public class Gun
         {
             width = Assets.ak47.Width/2;
             height = Assets.ak47.Height/2;
+        }
+        if (type == GunType.Hkg36)
+        {
+            width = Assets.hkg36.Width/2;
+            height = Assets.hkg36.Height/2;
         }
 
         barrelLength = width * 0.55f;
@@ -99,6 +104,10 @@ public class Gun
             else if (type == GunType.Ak47)
             {
                 Assets.shoot.Play();
+            }
+            else if (type == GunType.Hkg36)
+            {
+                Assets.shoot3.Play();
             }
         }
 
@@ -160,6 +169,11 @@ public class Gun
             drawTexture = Assets.ak47;
             barrelLength = width * 0.4f;
         }
+        else if (type == GunType.Hkg36)
+        {
+            drawTexture = Assets.hkg36;
+            barrelLength = width * 0.4f;
+        }
 
         spriteBatch.Draw(
             drawTexture, 
@@ -199,6 +213,7 @@ public class Gun
     public enum GunType
     {
         Ak47,
-        M4a1
+        M4a1,
+        Hkg36
     }
 }

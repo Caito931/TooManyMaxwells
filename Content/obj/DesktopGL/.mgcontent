@@ -10,6 +10,7 @@
     <File>/home/caio/Programing/TooManyMaxwells/Content/bullet.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/casing.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/doge.png</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/hkg36.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/m4a1.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/maxwellAtlas.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/muzzleFlash.png</File>
@@ -17,10 +18,13 @@
     <File>/home/caio/Programing/TooManyMaxwells/Content/Roboto.spritefont</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/shoot.wav</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/shoot2.wav</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/shoot3.wav</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/walter.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/walter(2).png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

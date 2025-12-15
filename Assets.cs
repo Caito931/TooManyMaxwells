@@ -19,6 +19,7 @@ public class Assets
     public static Texture2D maxwellAtlas;
     public static Texture2D ak47;
     public static Texture2D m4a1;
+    public static Texture2D hkg36;
     public static Texture2D bullet;
     public static Texture2D casing;
     public static Texture2D muzzleFlash;
@@ -28,6 +29,7 @@ public class Assets
     public static List<SoundEffect> sounds = new List<SoundEffect>();
     public static SoundEffect shoot;
     public static SoundEffect shoot2;
+    public static SoundEffect shoot3;
     public static SoundEffect reload;
 
     // White Pixel
@@ -42,6 +44,7 @@ public class Assets
         maxwellAtlas = Content.Load<Texture2D>("maxwellAtlas");
         ak47 = Content.Load<Texture2D>("ak47(2)");
         m4a1 = Content.Load<Texture2D>("m4a1");
+        hkg36 = Content.Load<Texture2D>("hkg36");
         bullet = Content.Load<Texture2D>("bullet");
         casing = Content.Load<Texture2D>("casing");
         muzzleFlash = Content.Load<Texture2D>("muzzleFlash");
@@ -52,6 +55,7 @@ public class Assets
         textures.Add(maxwellAtlas);
         textures.Add(ak47);
         textures.Add(m4a1);
+        textures.Add(hkg36);
         textures.Add(bullet);
         textures.Add(casing);
         textures.Add(muzzleFlash);
@@ -59,10 +63,12 @@ public class Assets
 
         shoot = Content.Load<SoundEffect>("shoot");
         shoot2 = Content.Load<SoundEffect>("shoot2");
+        shoot3 = Content.Load<SoundEffect>("shoot3");
         reload = Content.Load<SoundEffect>("reload");
 
         sounds.Add(shoot);
         sounds.Add(shoot2);
+        sounds.Add(shoot3);
         sounds.Add(reload);
 
         whitePixel = new Texture2D(graphicsDevice, 1, 1);

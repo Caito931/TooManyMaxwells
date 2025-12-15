@@ -85,6 +85,18 @@
 /processorParam:TextureFormat=Color
 /build:doge.png
 
+#begin hkg36.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:hkg36.png
+
 #begin m4a1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -145,6 +157,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:shoot2.wav
+
+#begin shoot3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:shoot3.wav
 
 #begin walter.png
 /importer:TextureImporter

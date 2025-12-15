@@ -138,7 +138,14 @@ public class GameRoot : Game
         // Enemy
         Enemy.Draw(_spriteBatch);
 
+        // Doge
         _spriteBatch.Draw(Assets.doge, new Vector2(winWidth/2 - Assets.doge.Width/2, winHeight/2 - Assets.doge.Height/2), Color.White);
+
+        // Press F1
+        _spriteBatch.DrawString(Assets.font, "Press F1 to Switch gun", new Vector2(255, GameRoot.winHeight - 50), Color.White);
+
+        // Press R
+        _spriteBatch.DrawString(Assets.font, "Press R to reload", new Vector2(725, GameRoot.winHeight - 50), Color.White);
 
         _spriteBatch.End();
         
