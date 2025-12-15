@@ -34,7 +34,7 @@ public class Bullet
         height = Assets.bullet.Height/2;
         pos = new Vector2(
             gun.pos.X + gun.direction.X * gun.barrelLength, 
-            gun.pos.Y + gun.direction.Y * gun.barrelLength
+            gun.pos.Y + gun.direction.Y * gun.barrelLength - 12
         );
         hitBox = new Rectangle((int)pos.X, (int)pos.Y, (int)width, (int)height);
     }

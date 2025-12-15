@@ -15,5 +15,5 @@ game.Run();
 // Adicionar Menu
 // Adicionar ScreenShake
 // Adicionar Vida e Game Over do Doge
-// Consertar o giro da Arma
+// Consertar o giro da Arma (X)
 // Adicionar Score
