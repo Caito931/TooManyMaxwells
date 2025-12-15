@@ -28,13 +28,13 @@ public class Gun
     public int ammoCount = 30;
     public string facing;
     public int damage;
-    public static GunType[] gunTypes = [GunType.M4a1, GunType.Ak47, GunType.Hkg36];
+    public static GunType[] gunTypes = [GunType.Hkg36, GunType.M4a1, GunType.Ak47];
     public int gunTypeIndex = 0;
     public GunType type;
 
     public Gun()
     {
-        type = GunType.M4a1;
+        type = GunType.Hkg36;
         if (type == GunType.M4a1)
         {
             width = Assets.m4a1.Width/2;
@@ -129,7 +129,7 @@ public class Gun
         // Update Gun Position
         pos = new Vector2(
             player.pos.X + player.width / 1.2f,
-            player.pos.Y + player.height / 2f
+            player.pos.Y + player.height / 1.5f
         );
 
         // Direction
@@ -167,25 +167,25 @@ public class Gun
         if (type == GunType.M4a1)
         {
             drawTexture = Assets.m4a1;
-            barrelLength = width/2f * 0.55f;
+            barrelLength = width/2f * 1.1f;
                 muzzlePos =  new Vector2(
                 pos.X + direction.X * barrelLength * 1.5f + 8,
                 pos.Y + direction.Y * barrelLength * 1.5f - 12
             );
         }
-        else if (type == GunType.Ak47)
+        if (type == GunType.Ak47)
         {
             drawTexture = Assets.ak47;
-            barrelLength = width/2f * 0.4f;
+            barrelLength = width/2f;
             muzzlePos =  new Vector2(
                 pos.X + direction.X * barrelLength * 1.5f,
                 pos.Y + direction.Y * barrelLength * 1.5f - 20
             );
         }
-        else if (type == GunType.Hkg36)
+        if (type == GunType.Hkg36)
         {
             drawTexture = Assets.hkg36;
-            barrelLength = width/2f * 0.4f;
+            barrelLength = width/2f * 0.55f;
             muzzlePos =  new Vector2(
                 pos.X + direction.X * barrelLength * 1.5f,
                 pos.Y + direction.Y * barrelLength * 1.5f - 10
