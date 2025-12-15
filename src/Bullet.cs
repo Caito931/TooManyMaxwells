@@ -53,7 +53,7 @@ public class Bullet
             // Remove
             if (bullet.pos.X >= GameRoot.winWidth) { bullets.RemoveAt(i); }
             else if (bullet.pos.X - bullet.width <= 0) { bullets.RemoveAt(i); }
-            if (bullet.pos.Y >= GameRoot.winHeight) { bullets.RemoveAt(i); }
+            else if (bullet.pos.Y >= GameRoot.winHeight) { bullets.RemoveAt(i); }
             else if (bullet.pos.Y - bullet.height <= 0) { bullets.RemoveAt(i); }
 
         }

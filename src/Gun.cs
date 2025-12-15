@@ -65,19 +65,7 @@ public class Gun
             gunTypeIndex = (gunTypeIndex + 1) % gunTypes.Length;
             type = gunTypes[gunTypeIndex];
         }
-
-        // Facing
-        if (mousePosition.X > pos.X)
-        {
-            facing = "right";
-            fx = SpriteEffects.None;
-        }
-        else if (mousePosition.X < pos.X)
-        {
-            facing = "left";
-            fx = SpriteEffects.FlipVertically;
-        }
-
+        
         // Time between each Shot
         if (shotTimer != 0)
         {
@@ -135,10 +123,12 @@ public class Gun
             recoilVelocity = 0f;
         }
 
+        // Clamp Recoil
         recoilAmount = MathHelper.Clamp(recoilAmount, 0f, RecoilKick);
 
+        // Update Gun Position
         pos = new Vector2(
-            player.pos.X + player.width / 2f,
+            player.pos.X + player.width / 1.2f,
             player.pos.Y + player.height / 2f
         );
 
@@ -154,31 +144,55 @@ public class Gun
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        if (facing == "left")
-        {
-            fx = SpriteEffects.FlipVertically;
-        } else { fx = SpriteEffects.None; }
+        // Facing left?
+        bool facingLeft = MathF.Abs(angle) > MathF.PI / 2f;
+        fx = facingLeft
+            ? SpriteEffects.FlipVertically
+            : SpriteEffects.None;
         
+        if (facingLeft)
+        {
+            facing = "left";
+            pos.X -= width / 4f;
+        }
+        else
+        {
+            facing = "right";
+        }
+        
+        // Decide Angle, Texture and Muzzle Pos
         float drawAngle = angle;
-
         Texture2D drawTexture = Assets.whitePixel;
-
+        Vector2 muzzlePos =  new Vector2(0, 0);
         if (type == GunType.M4a1)
         {
             drawTexture = Assets.m4a1;
             barrelLength = width/2f * 0.55f;
+                muzzlePos =  new Vector2(
+                pos.X + direction.X * barrelLength * 1.5f + 8,
+                pos.Y + direction.Y * barrelLength * 1.5f - 12
+            );
         }
         else if (type == GunType.Ak47)
         {
             drawTexture = Assets.ak47;
             barrelLength = width/2f * 0.4f;
+            muzzlePos =  new Vector2(
+                pos.X + direction.X * barrelLength * 1.5f,
+                pos.Y + direction.Y * barrelLength * 1.5f - 20
+            );
         }
         else if (type == GunType.Hkg36)
         {
             drawTexture = Assets.hkg36;
             barrelLength = width/2f * 0.4f;
+            muzzlePos =  new Vector2(
+                pos.X + direction.X * barrelLength * 1.5f,
+                pos.Y + direction.Y * barrelLength * 1.5f - 10
+            );
         }
 
+        // Gun
         spriteBatch.Draw(
             drawTexture, 
             pos, 
@@ -191,30 +205,7 @@ public class Gun
             0f
         );
 
-        Vector2 muzzlePos =  new Vector2(0, 0);
-
-        if (type == GunType.M4a1)
-        {
-            muzzlePos =  new Vector2(
-                pos.X + direction.X * barrelLength * 1.5f + 8,
-                pos.Y + direction.Y * barrelLength * 1.5f - 12
-            );
-        }
-        if (type == GunType.Ak47)
-        {
-            muzzlePos =  new Vector2(
-                pos.X + direction.X * barrelLength * 1.5f,
-                pos.Y + direction.Y * barrelLength * 1.5f - 20
-            );
-        }
-        if (type == GunType.Hkg36)
-        {
-            muzzlePos =  new Vector2(
-                pos.X + direction.X * barrelLength * 1.5f,
-                pos.Y + direction.Y * barrelLength * 1.5f - 10
-            );
-        }
-
+        // Muzzle Flash
         if (muzzleFlashVisible) 
         {
             spriteBatch.Draw(
