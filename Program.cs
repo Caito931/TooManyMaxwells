@@ -2,6 +2,15 @@
 game.Run();
 
 // TODO
+
+// TODO: IMPORTANT
+// BREAK DOWN GUN CLASS TO:
+// HK G36
+// M4A1-S
+// AK47
+// AA12
+// more..
+
 // Adicionar Fundo (X)
 // Adicionar Jogador "Walter" (X)
 // Adicionar Arma (X)

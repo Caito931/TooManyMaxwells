@@ -49,3 +49,7 @@
 /home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/doge.xnb
 /home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/hkg36.xnb
 /home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/shoot3.xnb
+/home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/aa12.xnb
+/home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/ball.xnb
+/home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/shell.xnb
+/home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/shoot4.xnb

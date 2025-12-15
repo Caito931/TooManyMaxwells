@@ -10,6 +10,7 @@ namespace TooManyMaxwells;
 public class Bullet
 {
     public static List<Bullet> bullets = new List<Bullet>();
+    public Texture2D texture;
     public SpriteEffects fx;
     public Rectangle hitBox;
     public Vector2 pos;
@@ -22,16 +23,17 @@ public class Bullet
     public int dirX;
     public int damage;
 
-    public Bullet(Gun gun, Player player)
+    public Bullet(Gun gun, Player player, Texture2D Texture)
     {
+        texture = Texture;
         direction = gun.direction;
         angle = gun.angle;
         velocity = direction * speed;
 
         damage = gun.damage;
 
-        width = Assets.bullet.Width/2;
-        height = Assets.bullet.Height/2;
+        width = texture.Width/2;
+        height = texture.Height/2;
         pos = new Vector2(
             gun.pos.X + gun.direction.X * gun.barrelLength, 
             gun.pos.Y + gun.direction.Y * gun.barrelLength - 12
@@ -67,7 +69,7 @@ public class Bullet
             b.fx = b.dirX < 0 ? SpriteEffects.FlipVertically : SpriteEffects.None;
 
             spriteBatch.Draw(
-                Assets.bullet, 
+                b.texture, 
                 b.pos, 
                 null,
                 Color.White, 

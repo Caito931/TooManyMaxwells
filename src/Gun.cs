@@ -26,10 +26,11 @@ public class Gun
     public float muzzleFlashAngle;
     public float barrelLength;
     public SpriteEffects fx;
-    public int ammoCount = 30;
+    public int maxAmmoCount;
+    public int ammoCount;
     public string facing;
     public int damage;
-    public static GunType[] gunTypes = [GunType.Hkg36, GunType.M4a1, GunType.Ak47];
+    public static GunType[] gunTypes = [GunType.Hkg36, GunType.M4a1, GunType.Ak47, GunType.Aa12];
     public int gunTypeIndex = 0;
     public GunType type;
 
@@ -66,31 +67,41 @@ public class Gun
         // Shoot
         if (mouseState.LeftButton == ButtonState.Pressed && shotTimer <= 0 && ammoCount > 0)
         {
-            Bullet.bullets.Add(new Bullet(this, player));
             recoilVelocity += RecoilKick;
             shotTimer = shotTime;
             muzzleFlashAngle = new Random().Next(-1, 3);
             ammoCount -= 1;
-            Casing.casings.Add(new Casing(this));
 
             if (type == GunType.M4a1)
             {
                 Assets.shoot2.Play();
+                Casing.casings.Add(new Casing(this));
+                Bullet.bullets.Add(new Bullet(this, player, Assets.bullet));
             }
             else if (type == GunType.Ak47)
             {
                 Assets.shoot.Play();
+                Casing.casings.Add(new Casing(this));
+                Bullet.bullets.Add(new Bullet(this, player, Assets.bullet));
             }
             else if (type == GunType.Hkg36)
             {
                 Assets.shoot3.Play();
+                Casing.casings.Add(new Casing(this));
+                Bullet.bullets.Add(new Bullet(this, player, Assets.bullet));
+            }
+            else if (type == GunType.Aa12)
+            {
+                Assets.shoot4.Play();
+                Shell.shells.Add(new Shell(this));
+                Bullet.bullets.Add(new Bullet(this, player, Assets.ball));
             }
         }
 
         // Reload
         if (GameRoot.ks.IsKeyDown(Keys.R) && !GameRoot.previousKs.IsKeyDown(Keys.R))
         {
-            ammoCount = 30;
+            ammoCount = maxAmmoCount;
             Assets.reload.Play();
         }
 
@@ -179,6 +190,15 @@ public class Gun
                 pos.Y + direction.Y * barrelLength * 1.5f - 10
             );
         }
+        if (type == GunType.Aa12)
+        {
+            drawTexture = Assets.aa12;
+            barrelLength = width/2f * 0.55f;
+            muzzlePos =  new Vector2(
+                pos.X + direction.X * barrelLength * 1.5f,
+                pos.Y + direction.Y * barrelLength * 1.5f - 10
+            );
+        }
 
         // Gun
         spriteBatch.Draw(
@@ -224,6 +244,8 @@ public class Gun
             height = Assets.m4a1.Height/2;
             shotTime = 0.06f;
             damage = 12;
+            maxAmmoCount = 30;
+            ammoCount = 30;
         }
         if (type == GunType.Ak47)
         {
@@ -231,6 +253,8 @@ public class Gun
             height = Assets.ak47.Height/2;
             shotTime = 0.1f;
             damage = 20;
+            maxAmmoCount = 30;
+            ammoCount = 30;
         }
         if (type == GunType.Hkg36)
         {
@@ -238,6 +262,17 @@ public class Gun
             height = Assets.hkg36.Height/2;
             shotTime = 0.08f;
             damage = 15;
+            maxAmmoCount = 30;
+            ammoCount = 30;
+        }
+        if (type == GunType.Aa12)
+        {
+            width = Assets.aa12.Width/2;
+            height = Assets.aa12.Height/2;
+            shotTime = 0.2f;
+            damage = 40;
+            maxAmmoCount = 20;
+            ammoCount = 20;
         }
 
     }
@@ -246,6 +281,7 @@ public class Gun
     {
         Ak47,
         M4a1,
-        Hkg36
+        Hkg36,
+        Aa12
     }
 }

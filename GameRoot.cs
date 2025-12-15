@@ -89,6 +89,8 @@ public class GameRoot : Game
 
         Casing.Update(dt);
 
+        Shell.Update(dt);
+
         Enemy.Update(dt, player);
 
         // Bullet and Enemy Collision
@@ -125,6 +127,9 @@ public class GameRoot : Game
 
         // Casing
         Casing.Draw(_spriteBatch);
+
+        // Shell
+        Shell.Draw(_spriteBatch);
 
         // Player
         player.Draw(_spriteBatch);
