@@ -15,6 +15,7 @@ public class Assets
     // List Texture2d
     public static List<Texture2D> textures = new List<Texture2D>();
     public static Texture2D background;
+    public static Texture2D background2;
     public static Texture2D walter;
     public static Texture2D maxwellAtlas;
     public static Texture2D ak47;
@@ -44,6 +45,7 @@ public class Assets
         font = Content.Load<SpriteFont>("Roboto");
 
         background = Content.Load<Texture2D>("background");
+        background2 = Content.Load<Texture2D>("background(2)");
         walter = Content.Load<Texture2D>("walter(2)");
         maxwellAtlas = Content.Load<Texture2D>("maxwellAtlas");
         ak47 = Content.Load<Texture2D>("ak47(2)");
@@ -58,6 +60,7 @@ public class Assets
         doge = Content.Load<Texture2D>("doge");
 
         textures.Add(background);
+        textures.Add(background2);
         textures.Add(walter);
         textures.Add(maxwellAtlas);
         textures.Add(ak47);

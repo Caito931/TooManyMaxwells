@@ -22,9 +22,23 @@ public class Bullet
     public float angle;
     public int dirX;
     public int damage;
+    public BulletType bulletType;
 
     public Bullet(Gun gun, Player player, Texture2D Texture)
     {
+        if (gun.type == Gun.GunType.Hkg36 ||
+            gun.type == Gun.GunType.M4a1 ||
+            gun.type == Gun.GunType.Ak47)
+        {
+            bulletType = BulletType.Rifle;
+        }
+        else
+        {
+            bulletType = BulletType.Shotgun;
+        }
+
+        if (bulletType == BulletType.Shotgun) { speed = 1000f; } // Change this system later
+
         texture = Texture;
         direction = gun.direction;
         angle = gun.angle;
@@ -55,9 +69,9 @@ public class Bullet
 
             // Remove
             if (bullet.pos.X >= GameRoot.winWidth) { bullets.RemoveAt(i); }
-            else if (bullet.pos.X - bullet.width <= 0) { bullets.RemoveAt(i); }
+            else if (bullet.pos.X + bullet.width <= 0) { bullets.RemoveAt(i); }
             else if (bullet.pos.Y >= GameRoot.winHeight) { bullets.RemoveAt(i); }
-            else if (bullet.pos.Y - bullet.height <= 0) { bullets.RemoveAt(i); }
+            else if (bullet.pos.Y + bullet.height <= 0) { bullets.RemoveAt(i); }
 
         }
 
@@ -81,5 +95,11 @@ public class Bullet
                 0f
             );
         }
+    }
+
+    public enum BulletType
+    {
+        Rifle,
+        Shotgun
     }
 }

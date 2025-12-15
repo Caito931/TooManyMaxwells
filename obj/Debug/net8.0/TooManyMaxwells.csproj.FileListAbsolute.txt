@@ -53,3 +53,4 @@
 /home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/ball.xnb
 /home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/shell.xnb
 /home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/shoot4.xnb
+/home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/background(2).xnb

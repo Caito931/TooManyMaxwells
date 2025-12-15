@@ -3,14 +3,7 @@ game.Run();
 
 // TODO
 
-// TODO: IMPORTANT
-// BREAK DOWN GUN CLASS TO:
-// HK G36
-// M4A1-S
-// AK47
-// AA12
-// more..
-
+// Quebrar a classe Gun (X)
 // Adicionar Fundo (X)
 // Adicionar Jogador "Walter" (X)
 // Adicionar Arma (X)
@@ -20,9 +13,13 @@ game.Run();
 // Adicionar Efeitos de Munição (X)
 // Adicionar Maxwell (X)
 // Adicionar Doge (X)
+// Adicionar efeito de dano do Maxwell, Tipo mudar o tamanho  (X)
+// Adicionar outras posições de spawn (X)
+// Adicionar Tipos de Munição (X)
+// Adicionar Indicador de Vida (X)
+// Consertar o giro da Arma (X)
 // Adicionar Waves
 // Adicionar Menu
 // Adicionar ScreenShake
 // Adicionar Vida e Game Over do Doge
-// Consertar o giro da Arma (X)
 // Adicionar Score

@@ -159,7 +159,7 @@ public class GameRoot : Game
         _spriteBatch.Begin();
 
         // Background
-        _spriteBatch.Draw(Assets.background, new Vector2(0,0), Color.White);
+        _spriteBatch.Draw(Assets.background2, new Rectangle(0,0, winWidth, winHeight), Color.White);
 
         // Casing
         Casing.Draw(_spriteBatch);

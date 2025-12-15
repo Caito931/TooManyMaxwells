@@ -18,16 +18,22 @@ public class Enemy
     public float width;
     public float height;
     public int health;
-    public float flashTime = 0.07f;
+    public float flashTime = 0.05f;
     public float flashTimer = 0f;
     public Vector2 Target;
+    public bool scaleAnimating = false;
+    public int scaleDir = 1;
 
     public Enemy()
     {
-        int[] possibleX = [-200, GameRoot.winWidth+200];
-        int[] possibleY = [0, GameRoot.winHeight];
+        Vector2 possiblePos1 = new Vector2(-200, new Random().Next(0, GameRoot.winHeight)); // Left
+        Vector2 possiblePos2 = new Vector2(GameRoot.winWidth+200, new Random().Next(0, GameRoot.winHeight)); // Right
+        Vector2 possiblePos3 = new Vector2(new Random().Next(0, GameRoot.winWidth), -200); // Up
+        Vector2 possiblePos4 = new Vector2(new Random().Next(0, GameRoot.winWidth), GameRoot.winHeight+200); // Down
 
-        pos = new Vector2(possibleX[new Random().Next(0, 2)], possibleY[new Random().Next(0, 2)]);
+        Vector2[] possiblePositions = [possiblePos1, possiblePos2, possiblePos3, possiblePos4];
+
+        pos = possiblePositions[new Random().Next(0, possiblePositions.Length)];
         float scale = 0.25f;
         width = 400;
         height = 400;
@@ -62,13 +68,19 @@ public class Enemy
             if (enemy.flashTimer != 0)
             {
                 enemy.flashTimer -= dt;
-                enemy.color = Color.Red;
+                enemy.color = Color.White; // Red
 
                 if (enemy.flashTimer <= 0)
                 {
                     enemy.flashTimer = 0;
                     enemy.color = Color.White;
+                    enemy.animation.scale = 0.25f;
                 }
+            }
+
+            if (enemy.scaleAnimating)
+            {
+                enemy.popUp(1f, 0.2f, dt);
             }
 
             if (enemy.health <= 0)
@@ -107,6 +119,7 @@ public class Enemy
 
             enemy.animation.Update(dt);
             enemy.animation.color = enemy.color;
+
         }
 
     }
@@ -114,6 +127,8 @@ public class Enemy
     public void Flash()
     {
         this.flashTimer = this.flashTime;
+        animation.scale = 0.2f;
+        scaleAnimating = true;
     }
 
     public static void Draw(SpriteBatch spriteBatch)
@@ -121,8 +136,40 @@ public class Enemy
         foreach (Enemy e in Enemy.enemies)
         {
             e.animation.Draw(spriteBatch);
+
+            spriteBatch.Draw(
+                Assets.whitePixel, 
+                new Rectangle((int)e.animation.pos.X, (int)e.animation.pos.Y, e.health, 10),
+                Color.Green
+            );
         }
        
     }
 
+    public void popUp(float SYspeed, float minSY, float dt)
+    {
+        if (scaleDir == 1)
+        {
+            animation.scale -= SYspeed * dt;
+            animation.pos.Y -= SYspeed*100 * dt;
+            animation.pos.X -= SYspeed*100 * dt;
+            if (animation.scale <= minSY) 
+            {
+                scaleDir = 0;
+            }
+        }
+        if (scaleDir == 0)
+        {
+            animation.scale += SYspeed * dt;
+            animation.pos.Y += SYspeed*100 * dt;
+            animation.pos.X += SYspeed*100 * dt;
+
+            if (animation.scale >= 0.25f) 
+            {
+                scaleDir = 1;
+                scaleAnimating = false;
+                animation.scale = 0.25f;
+            }
+        }
+    }
 }

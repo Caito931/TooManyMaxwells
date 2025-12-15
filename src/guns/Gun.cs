@@ -131,10 +131,12 @@ public class Gun
             if (facingLeft)
             {
                 facing = "left";
+                pos.X -= width / 4f;
             }
             else
             {
                 facing = "right";
+                pos.X -= width / 16f;
             }
             
             // Decide Angle, Texture and Muzzle Pos
