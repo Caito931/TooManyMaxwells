@@ -37,7 +37,7 @@ class Shell
         this.height = Assets.shell.Height/2;
         this.size = new Vector2(width, height);
         
-        if (gun.facing == "right") { this.dir = -1; }
+         if (gun.facing == "right") { this.dir = -1; this.pos = new Vector2(gun.pos.X - gun.width/4, gun.pos.Y); }
         else { this.dir = 1; }
     }
 

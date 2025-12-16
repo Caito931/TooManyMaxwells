@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0Atc//aePsc=",
+  "dgSpecHash": "Z7M8ycXNqUQ=",
   "success": true,
   "projectFilePath": "/home/caio/Programing/TooManyMaxwells/TooManyMaxwells.csproj",
   "expectedPackageFiles": [
@@ -12,9 +12,8 @@
     "/home/caio/.nuget/packages/nvorbis/0.10.4/nvorbis.0.10.4.nupkg.sha512",
     "/home/caio/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
     "/home/caio/.nuget/packages/system.valuetuple/4.5.0/system.valuetuple.4.5.0.nupkg.sha512",
-    "/home/caio/.nuget/packages/microsoft.netcore.app.runtime.win-x64/8.0.15/microsoft.netcore.app.runtime.win-x64.8.0.15.nupkg.sha512",
-    "/home/caio/.nuget/packages/microsoft.aspnetcore.app.runtime.win-x64/8.0.15/microsoft.aspnetcore.app.runtime.win-x64.8.0.15.nupkg.sha512",
-    "/home/caio/.nuget/packages/microsoft.netcore.app.host.win-x64/8.0.15/microsoft.netcore.app.host.win-x64.8.0.15.nupkg.sha512"
+    "/home/caio/.nuget/packages/microsoft.netcore.app.runtime.linux-x64/8.0.15/microsoft.netcore.app.runtime.linux-x64.8.0.15.nupkg.sha512",
+    "/home/caio/.nuget/packages/microsoft.aspnetcore.app.runtime.linux-x64/8.0.15/microsoft.aspnetcore.app.runtime.linux-x64.8.0.15.nupkg.sha512"
   ],
   "logs": []
 }

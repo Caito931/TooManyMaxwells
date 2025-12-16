@@ -23,3 +23,4 @@ game.Run();
 // Adicionar ScreenShake
 // Adicionar Vida e Game Over do Doge (X)
 // Adicionar Score
+// Adicionar global scale ou alguma coisa ass pra dar zoom
