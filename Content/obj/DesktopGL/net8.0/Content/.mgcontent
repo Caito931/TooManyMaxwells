@@ -10,6 +10,7 @@
     <File>/home/caio/Programing/TooManyMaxwells/Content/background.jpg</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/background(2).jpg</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/ball.png</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/barrett.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/bullet.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/casing.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/doge.png</File>
@@ -19,15 +20,22 @@
     <File>/home/caio/Programing/TooManyMaxwells/Content/muzzleFlash.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/reload.wav</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/Roboto.spritefont</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/scar.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/shell.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/shoot.wav</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/shoot2.wav</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/shoot3.wav</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/shoot4.wav</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/shoot5.wav</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/shoot6.wav</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/walter.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/walter(2).png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

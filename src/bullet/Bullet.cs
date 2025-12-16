@@ -28,7 +28,9 @@ public class Bullet
     {
         if (gun.type == Gun.GunType.Hkg36 ||
             gun.type == Gun.GunType.M4a1 ||
-            gun.type == Gun.GunType.Ak47)
+            gun.type == Gun.GunType.Ak47 ||
+            gun.type == Gun.GunType.Barrett ||
+            gun.type == Gun.GunType.Scar)
         {
             bulletType = BulletType.Rifle;
         }

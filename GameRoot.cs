@@ -11,13 +11,17 @@ public class GameRoot : Game
     private SpriteBatch _spriteBatch;
     public static int winWidth = 1080;
     public static int winHeight = 720;
-    public static KeyboardState ks;
-    public static KeyboardState previousKs;
+    public static KeyboardState keyboardState;
+    public static KeyboardState previousKeyboardState;
+    public static MouseState mouseState;
+    public static MouseState previousMouseState;
     public Player player;
     public static Gun hkg36;
     public static Gun m4a1;
     public static Gun ak47;
     public static Gun aa12;
+    public static Gun barrett;
+    public static Gun scar;
 
     public GameRoot()
     {
@@ -61,6 +65,12 @@ public class GameRoot : Game
         // Aa12
         aa12 = new Aa12();
 
+        // Barrett
+        barrett = new Barrett();
+
+        // Scar
+        scar = new Scar();
+
         // Guns
         Gun.LoadGuns();
 
@@ -84,15 +94,15 @@ public class GameRoot : Game
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
         
-        // KeyboardState
-        ks = Keyboard.GetState();
+        // Keyboard State
+        keyboardState = Keyboard.GetState();
 
         // Mouse State and Position
-        MouseState mouseState = Mouse.GetState();
+        mouseState = Mouse.GetState();
         Vector2 mousePosition = new Vector2(mouseState.X, mouseState.Y);
 
         // Spawn Enemy
-        if (ks.IsKeyDown(Keys.E) && !previousKs.IsKeyDown(Keys.E))
+        if (keyboardState.IsKeyDown(Keys.E) && !previousKeyboardState.IsKeyDown(Keys.E))
         {
             Enemy.enemies.Add(new Enemy());
         }
@@ -103,7 +113,7 @@ public class GameRoot : Game
         // Guns
         for (int i = 0; i < Gun.guns.Count; i++)
         {
-            Gun.guns[i].Update(dt, player, mouseState, mousePosition);
+            Gun.guns[i].Update(dt, player, mouseState, previousMouseState, mousePosition);
             if (i != Gun.gunIndex)
             {
                 Gun.guns[i].selected = false;
@@ -112,7 +122,7 @@ public class GameRoot : Game
         }
         
         // Change Gun
-        if (ks.IsKeyDown(Keys.F1) && !previousKs.IsKeyDown(Keys.F1)) 
+        if (keyboardState.IsKeyDown(Keys.F1) && !previousKeyboardState.IsKeyDown(Keys.F1)) 
         { 
             Gun.gunIndex = (Gun.gunIndex + 1) % Gun.guns.Count; 
         }
@@ -146,7 +156,8 @@ public class GameRoot : Game
             }
         }
 
-        previousKs = ks;
+        previousKeyboardState = keyboardState;
+        previousMouseState = mouseState;
 
         base.Update(gameTime);
     }

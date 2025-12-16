@@ -54,3 +54,7 @@
 /home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/shell.xnb
 /home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/shoot4.xnb
 /home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/background(2).xnb
+/home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/barrett.xnb
+/home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/shoot5.xnb
+/home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/scar.xnb
+/home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/Content/shoot6.xnb

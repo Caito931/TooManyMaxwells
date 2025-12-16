@@ -22,6 +22,8 @@ public class Assets
     public static Texture2D m4a1;
     public static Texture2D hkg36;
     public static Texture2D aa12;
+    public static Texture2D barrett;
+    public static Texture2D scar;
     public static Texture2D bullet;
     public static Texture2D casing;
     public static Texture2D ball;
@@ -35,6 +37,8 @@ public class Assets
     public static SoundEffect shoot2;
     public static SoundEffect shoot3;
     public static SoundEffect shoot4;
+    public static SoundEffect shoot5;
+    public static SoundEffect shoot6;
     public static SoundEffect reload;
 
     // White Pixel
@@ -52,6 +56,8 @@ public class Assets
         m4a1 = Content.Load<Texture2D>("m4a1");
         hkg36 = Content.Load<Texture2D>("hkg36");
         aa12 = Content.Load<Texture2D>("aa12");
+        barrett = Content.Load<Texture2D>("barrett");
+        scar = Content.Load<Texture2D>("scar");
         bullet = Content.Load<Texture2D>("bullet");
         casing = Content.Load<Texture2D>("casing");
         ball = Content.Load<Texture2D>("ball");
@@ -67,6 +73,8 @@ public class Assets
         textures.Add(m4a1);
         textures.Add(hkg36);
         textures.Add(aa12);
+        textures.Add(barrett);
+        textures.Add(scar);
         textures.Add(bullet);
         textures.Add(casing);
         textures.Add(ball);
@@ -78,12 +86,16 @@ public class Assets
         shoot2 = Content.Load<SoundEffect>("shoot2");
         shoot3 = Content.Load<SoundEffect>("shoot3");
         shoot4 = Content.Load<SoundEffect>("shoot4");
+        shoot5 = Content.Load<SoundEffect>("shoot5");
+        shoot6 = Content.Load<SoundEffect>("shoot6");
         reload = Content.Load<SoundEffect>("reload");
 
         sounds.Add(shoot);
         sounds.Add(shoot2);
         sounds.Add(shoot3);
         sounds.Add(shoot4);
+        sounds.Add(shoot5);
+        sounds.Add(shoot6);
         sounds.Add(reload);
 
         whitePixel = new Texture2D(graphicsDevice, 1, 1);

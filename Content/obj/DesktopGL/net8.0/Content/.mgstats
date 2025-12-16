@@ -5,6 +5,7 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "/home/caio/Programing/TooManyMaxwells/Content/background.jpg","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/background.xnb","TextureProcessor","Texture2DContent",783690,6822485,0.3098125
 "/home/caio/Programing/TooManyMaxwells/Content/background(2).jpg","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/background(2).xnb","TextureProcessor","Texture2DContent",5630541,65194677,2.250268
 "/home/caio/Programing/TooManyMaxwells/Content/ball.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/ball.xnb","TextureProcessor","Texture2DContent",9508,24405,0.0032974
+"/home/caio/Programing/TooManyMaxwells/Content/barrett.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/barrett.xnb","TextureProcessor","Texture2DContent",43185,270805,0.1354263
 "/home/caio/Programing/TooManyMaxwells/Content/bullet.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/bullet.xnb","TextureProcessor","Texture2DContent",2079,5285,0.0023566
 "/home/caio/Programing/TooManyMaxwells/Content/casing.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/casing.xnb","TextureProcessor","Texture2DContent",2702,6485,0.1200472
 "/home/caio/Programing/TooManyMaxwells/Content/doge.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/doge.xnb","TextureProcessor","Texture2DContent",9566,26885,0.1272962
@@ -14,10 +15,13 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "/home/caio/Programing/TooManyMaxwells/Content/muzzleFlash.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/muzzleFlash.xnb","TextureProcessor","Texture2DContent",6030,10085,0.1444075
 "/home/caio/Programing/TooManyMaxwells/Content/reload.wav","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/reload.xnb","SoundEffectProcessor","SoundEffectContent",129340,129401,0.1565987
 "/home/caio/Programing/TooManyMaxwells/Content/Roboto.spritefont","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/Roboto.xnb","FontDescriptionProcessor","SpriteFontContent",2009,70681,0.2275301
+"/home/caio/Programing/TooManyMaxwells/Content/scar.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/scar.xnb","TextureProcessor","Texture2DContent",35876,179605,0.1350402
 "/home/caio/Programing/TooManyMaxwells/Content/shell.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/shell.xnb","TextureProcessor","Texture2DContent",1985,3885,0.1288591
 "/home/caio/Programing/TooManyMaxwells/Content/shoot.wav","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/shoot.xnb","SoundEffectProcessor","SoundEffectContent",85344,85405,0.1645305
 "/home/caio/Programing/TooManyMaxwells/Content/shoot2.wav","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/shoot2.xnb","SoundEffectProcessor","SoundEffectContent",41948,42009,0.1429583
 "/home/caio/Programing/TooManyMaxwells/Content/shoot3.wav","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/shoot3.xnb","SoundEffectProcessor","SoundEffectContent",136700,136761,0.0701153
 "/home/caio/Programing/TooManyMaxwells/Content/shoot4.wav","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/shoot4.xnb","SoundEffectProcessor","SoundEffectContent",162416,162477,0.0770665
+"/home/caio/Programing/TooManyMaxwells/Content/shoot5.wav","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/shoot5.xnb","SoundEffectProcessor","SoundEffectContent",129340,129401,0.0809613
+"/home/caio/Programing/TooManyMaxwells/Content/shoot6.wav","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/shoot6.xnb","SoundEffectProcessor","SoundEffectContent",142168,142229,0.0671018
 "/home/caio/Programing/TooManyMaxwells/Content/walter.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/walter.xnb","TextureProcessor","Texture2DContent",33574,128085,0.0067173
 "/home/caio/Programing/TooManyMaxwells/Content/walter(2).png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/walter(2).xnb","TextureProcessor","Texture2DContent",37212,128085,0.1281507

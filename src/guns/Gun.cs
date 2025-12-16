@@ -39,16 +39,17 @@ public class Gun
     public int damage;
     public static List<Gun> guns;
     public static int gunIndex = 0;
-    public static GunType[] gunTypes = [GunType.Hkg36, GunType.M4a1, GunType.Ak47, GunType.Aa12];
+    public static GunType[] gunTypes = [GunType.Hkg36, GunType.M4a1, GunType.Ak47, GunType.Aa12, GunType.Barrett, GunType.Scar];
     public int gunTypeIndex = 0;
     public GunType type;
+    public GunMode gunMode;
     
     public static void LoadGuns()
     {
-        guns = [GameRoot.hkg36, GameRoot.m4a1, GameRoot.ak47, GameRoot.aa12];
+        guns = [GameRoot.hkg36, GameRoot.m4a1, GameRoot.ak47, GameRoot.aa12, GameRoot.barrett, GameRoot.scar];
     }
 
-    public virtual void Update(float dt, Player player, MouseState mouseState, Vector2 mousePosition)
+    public virtual void Update(float dt, Player player, MouseState mouseState, MouseState previousMouseState, Vector2 mousePosition)
     {
         // Update Gun Position
         pos = new Vector2(
@@ -85,10 +86,10 @@ public class Gun
             }
 
             // Shoot
-            Gun.Shoot(this, player, mouseState);
+            Gun.Shoot(this, player, mouseState, previousMouseState);
 
             // Reload
-            if (GameRoot.ks.IsKeyDown(Keys.R) && !GameRoot.previousKs.IsKeyDown(Keys.R))
+            if (GameRoot.keyboardState.IsKeyDown(Keys.R) && !GameRoot.previousKeyboardState.IsKeyDown(Keys.R))
             {
                 ammoCount = maxAmmoCount;
                 Assets.reload.Play();
@@ -180,9 +181,9 @@ public class Gun
         }
     }
 
-    public static void Shoot(Gun gun, Player player, MouseState mouseState)
+    public static void Shoot(Gun gun, Player player, MouseState mouseState, MouseState previousMouseState)
     {
-        if (mouseState.LeftButton == ButtonState.Pressed && gun.shotTimer <= 0 && gun.ammoCount > 0)
+        if (mouseState.LeftButton == ButtonState.Pressed && gun.shotTimer <= 0 && gun.ammoCount > 0 && gun.gunMode == GunMode.Auto)
         {
             gun.recoilVelocity += RecoilKick;
             gun.shotTimer = gun.shotTime;
@@ -213,6 +214,27 @@ public class Gun
                 Shell.shells.Add(new Shell(gun));
                 Bullet.bullets.Add(new Bullet(gun, player, Assets.ball));
             }
+            else if (gun.type == GunType.Scar)
+            {
+                Assets.shoot6.Play();
+                Casing.casings.Add(new Casing(gun));
+                Bullet.bullets.Add(new Bullet(gun, player, Assets.bullet));
+            }
+        }
+        if (mouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton != ButtonState.Pressed && gun.ammoCount > 0 && gun.gunMode == GunMode.Semi)
+        {
+            gun.recoilVelocity += RecoilKick;
+            gun.shotTimer = gun.shotTime;
+            gun.muzzleFlashAngle = new Random().Next(-1, 3);
+            gun.ammoCount -= 1;
+
+            if (gun.type == GunType.Barrett)
+            {
+                Assets.shoot5.Play();
+                Casing.casings.Add(new Casing(gun));
+                Bullet.bullets.Add(new Bullet(gun, player, Assets.bullet));
+            }
+
         }
     }
 
@@ -226,18 +248,32 @@ public class Gun
             case GunType.Hkg36:
                 BarrelLength = 0.55f;
                 Damage = 15;
+                gun.gunMode = GunMode.Auto;
             break;
             case GunType.M4a1:
                 BarrelLength = 0.7f;
                 Damage = 12;
+                gun.gunMode = GunMode.Auto;
             break;
             case GunType.Ak47:
                 BarrelLength = 0.7f;
                 Damage = 20;
+                gun.gunMode = GunMode.Auto;
             break;
             case GunType.Aa12:
                 BarrelLength = 0.55f;
                 Damage = 40;
+                gun.gunMode = GunMode.Auto;
+            break;
+            case GunType.Barrett:
+                BarrelLength = 0.55f;
+                Damage = 50;
+                gun.gunMode = GunMode.Semi;
+            break;
+            case GunType.Scar:
+                BarrelLength = 0.55f;
+                Damage = 30;
+                gun.gunMode = GunMode.Auto;
             break;
         }
 
@@ -289,6 +325,27 @@ public class Gun
             gun.ammoCount = 20;
             gun.selected = true;
         }
+        if (gun.type == GunType.Barrett)
+        {
+            gun.width = Assets.barrett.Width/2;
+            gun.height = Assets.barrett.Height/2;
+            gun.damage = 50;
+            gun.shotTime = 0.2f;
+            gun.maxAmmoCount = 5;
+            gun.ammoCount = 5;
+            gun.selected = true;
+        }
+        if (gun.type == GunType.Scar)
+        {
+            gun.width = Assets.scar.Width/2;
+            gun.height = Assets.scar.Height/2;
+            gun.damage = 30;
+            gun.shotTime = 0.09f;
+            gun.maxAmmoCount = 20;
+            gun.ammoCount = 20;
+            gun.selected = true;
+        }
+
 
     }
 
@@ -329,6 +386,24 @@ public class Gun
                 gun.pos.Y + gun.direction.Y * gun.barrelLength * 1.5f - 10
             );
         }
+        if (gun.type == GunType.Barrett)
+        {
+            gun.drawTexture = Assets.barrett;
+            gun.barrelLength = gun.width/2f * 0.6f;
+            gun.muzzlePos =  new Vector2(
+                gun.pos.X + gun.direction.X * gun.barrelLength * 1.5f,
+                gun.pos.Y + gun.direction.Y * gun.barrelLength * 1.5f 
+            );
+        }
+        if (gun.type == GunType.Scar)
+        {
+            gun.drawTexture = Assets.scar;
+            gun.barrelLength = gun.width/2f * 0.7f;
+            gun.muzzlePos =  new Vector2(
+                gun.pos.X + gun.direction.X * gun.barrelLength * 1.5f,
+                gun.pos.Y + gun.direction.Y * gun.barrelLength * 1.5f - 10
+            );
+        }
     }
     
     public enum GunType
@@ -336,6 +411,14 @@ public class Gun
         Ak47,
         M4a1,
         Hkg36,
-        Aa12
+        Aa12,
+        Barrett,
+        Scar
+    }
+
+    public enum GunMode
+    {
+        Auto,
+        Semi
     }
 }

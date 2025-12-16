@@ -16,9 +16,9 @@ public class Ak47 : Gun
         Gun.SetGunStats(this);
     }
 
-    public override void Update(float dt, Player player, MouseState mouseState, Vector2 mousePosition)
+    public override void Update(float dt, Player player, MouseState mouseState, MouseState previousMouseState, Vector2 mousePosition)
     {
-        base.Update(dt, player, mouseState, mousePosition);
+        base.Update(dt, player, mouseState, previousMouseState, mousePosition);
 
         // Do here another stuff
     }

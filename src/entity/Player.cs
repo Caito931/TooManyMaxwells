@@ -26,19 +26,19 @@ public class Player
     public void Update(float dt)
     {
         // Movment
-        if (GameRoot.ks.IsKeyDown(Keys.A) && pos.X > 0)
+        if (GameRoot.keyboardState.IsKeyDown(Keys.A) && pos.X > 0)
         {
             pos.X -= speed * dt;
         }
-        if (GameRoot.ks.IsKeyDown(Keys.D) && pos.X + width < GameRoot.winWidth)
+        if (GameRoot.keyboardState.IsKeyDown(Keys.D) && pos.X + width < GameRoot.winWidth)
         {
             pos.X += speed * dt;
         }
-        if (GameRoot.ks.IsKeyDown(Keys.W) && pos.Y > 0)
+        if (GameRoot.keyboardState.IsKeyDown(Keys.W) && pos.Y > 0)
         {
             pos.Y -= speed * dt;
         }
-        if (GameRoot.ks.IsKeyDown(Keys.S) && pos.Y + height < GameRoot.winHeight)
+        if (GameRoot.keyboardState.IsKeyDown(Keys.S) && pos.Y + height < GameRoot.winHeight)
         {
             pos.Y += speed * dt;
         }

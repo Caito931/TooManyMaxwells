@@ -85,6 +85,18 @@
 /processorParam:TextureFormat=Color
 /build:ball.png
 
+#begin barrett.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:barrett.png
+
 #begin bullet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -182,6 +194,18 @@
 /processorParam:TextureFormat=Compressed
 /build:Roboto.spritefont
 
+#begin scar.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:scar.png
+
 #begin shell.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -217,6 +241,18 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:shoot4.wav
+
+#begin shoot5.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:shoot5.wav
+
+#begin shoot6.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:shoot6.wav
 
 #begin walter.png
 /importer:TextureImporter
