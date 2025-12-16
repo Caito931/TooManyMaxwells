@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -12,17 +13,31 @@ public class GameRoot : Game
     public static int winWidth = 1920;
     public static int winHeight = 1080;
     public static bool isFullScreen = false;
+
     public static KeyboardState keyboardState;
     public static KeyboardState previousKeyboardState;
+
     public static MouseState mouseState;
     public static MouseState previousMouseState;
-    public Player player;
+
+    public static Player player;
+
     public static Gun hkg36;
     public static Gun m4a1;
     public static Gun ak47;
     public static Gun aa12;
     public static Gun barrett;
     public static Gun scar;
+
+    public static Spawner spawner1;
+    public static Spawner spawner2;
+    public static Spawner spawner3;
+    public static Spawner spawner4;
+
+    public static bool GameOver = false;
+    public static bool GameWon = false;    
+    public static Rectangle dogeHitbox;
+    public static string endMessage;
 
     public GameRoot()
     {
@@ -33,14 +48,10 @@ public class GameRoot : Game
 
     protected override void Initialize()
     {
-        // TODO: Add your initialization logic here
-
         // Window
         Window.Title = "Too Many Maxwells";
         _graphics.PreferredBackBufferWidth = winWidth;
         _graphics.PreferredBackBufferHeight = winHeight;
-        // _graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-        // _graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
         _graphics.IsFullScreen = isFullScreen;
         _graphics.ApplyChanges();
 
@@ -53,6 +64,9 @@ public class GameRoot : Game
 
         // Load Game Assets
         Assets.Load(Content, GraphicsDevice);
+
+        // Doge
+        dogeHitbox = new Rectangle(winWidth/2 - Assets.doge.Width/2, winHeight/2 - Assets.doge.Height/2, Assets.doge.Width, Assets.doge.Height);
 
         // Player
         player = new Player();
@@ -77,6 +91,16 @@ public class GameRoot : Game
 
         // Guns
         Gun.LoadGuns();
+
+        // Spawners
+        spawner1 = new Spawner(1, 3, 10); // Left
+        spawner2 = new Spawner(2, 3.2f, 12); // Right
+        spawner3 = new Spawner(3, 3.5f, 10); // Up
+        spawner4 = new Spawner(4, 3.6f, 10); // Down
+        Spawner.spawners.Add(spawner1);
+        Spawner.spawners.Add(spawner2);
+        Spawner.spawners.Add(spawner3);
+        Spawner.spawners.Add(spawner4);
 
         // TODO: use this.Content to load your game content here
     }
@@ -106,62 +130,75 @@ public class GameRoot : Game
         Vector2 mousePosition = new Vector2(mouseState.X, mouseState.Y);
 
         // Spawn Enemy
-        if (keyboardState.IsKeyDown(Keys.E) && !previousKeyboardState.IsKeyDown(Keys.E))
+        // if (keyboardState.IsKeyDown(Keys.E) && !previousKeyboardState.IsKeyDown(Keys.E))
+        // {
+        //     Enemy.enemies.Add(new Enemy());
+        // }
+
+        if (!GameOver)
         {
-            Enemy.enemies.Add(new Enemy());
-        }
+            // Player
+            player.Update(dt);
 
-        // Player
-        player.Update(dt);
-
-        // Guns
-        for (int i = 0; i < Gun.guns.Count; i++)
-        {
-            Gun.guns[i].Update(dt, player, mouseState, previousMouseState, mousePosition);
-            if (i != Gun.gunIndex)
+            // Guns
+            for (int i = 0; i < Gun.guns.Count; i++)
             {
-                Gun.guns[i].selected = false;
-            }
-            else { Gun.guns[i].selected = true; }
-        }
-        
-        // Change Gun
-        if (keyboardState.IsKeyDown(Keys.F1) && !previousKeyboardState.IsKeyDown(Keys.F1)) 
-        { 
-            Gun.gunIndex = (Gun.gunIndex + 1) % Gun.guns.Count; 
-        }
-
-        // Bullet
-        Bullet.Update(dt, mousePosition);
-
-        // Casing
-        Casing.Update(dt);
-
-        // Shell
-        Shell.Update(dt);
-
-        // Enemy
-        Enemy.Update(dt, player);
-
-        // Bullet and Enemy Collision
-        for (int i = Enemy.enemies.Count - 1; i >= 0; i--)
-        { 
-            for (int j = Bullet.bullets.Count - 1; j >= 0; j--)
-            {
-                var enemy = Enemy.enemies[i];
-                var bullet = Bullet.bullets[j];
-
-                if (bullet.hitBox.Intersects(enemy.hitBox))
+                Gun.guns[i].Update(dt, player, mouseState, previousMouseState, mousePosition);
+                if (i != Gun.gunIndex)
                 {
-                    enemy.health -= bullet.damage;
-                    enemy.Flash();
-                    Bullet.bullets.RemoveAt(j);
+                    Gun.guns[i].selected = false;
                 }
+                else { Gun.guns[i].selected = true; }
+            }
+            
+            // Change Gun
+            if (keyboardState.IsKeyDown(Keys.F1) && !previousKeyboardState.IsKeyDown(Keys.F1)) 
+            { 
+                Gun.gunIndex = (Gun.gunIndex + 1) % Gun.guns.Count; 
+            }
+
+            // Bullet
+            Bullet.Update(dt, mousePosition);
+
+            // Casing
+            Casing.Update(dt);
+
+            // Shell
+            Shell.Update(dt);
+
+            // Enemy
+            Enemy.Update(dt, player);
+
+            // Bullet and Enemy Collision
+            for (int i = Enemy.enemies.Count - 1; i >= 0; i--)
+            { 
+                for (int j = Bullet.bullets.Count - 1; j >= 0; j--)
+                {
+                    var enemy = Enemy.enemies[i];
+                    var bullet = Bullet.bullets[j];
+
+                    if (bullet.hitBox.Intersects(enemy.hitBox))
+                    {
+                        enemy.health -= bullet.damage;
+                        enemy.Flash();
+                        Bullet.bullets.RemoveAt(j);
+                    }
+                }
+            }
+
+            // Spawner
+            Spawner.UpdateSpawners(dt);
+        }
+        if (GameOver || GameWon)
+        {
+            if (keyboardState.IsKeyDown(Keys.E) && !previousKeyboardState.IsKeyDown(Keys.E))
+            {
+                Restart();
             }
         }
 
         // Change fullscreen
-        if (keyboardState.IsKeyDown(Keys.F2) && !previousKeyboardState.IsKeyDown(Keys.F2))
+        if (keyboardState.IsKeyDown(Keys.F11) && !previousKeyboardState.IsKeyDown(Keys.F11))
         {
             isFullScreen = !isFullScreen;
             _graphics.IsFullScreen = isFullScreen;
@@ -213,9 +250,40 @@ public class GameRoot : Game
         // Press R
         _spriteBatch.DrawString(Assets.font, "Press R to reload", new Vector2(725, GameRoot.winHeight - 50), Color.White);
 
+        // You Lost!
+        if (GameOver || GameWon)
+        {
+            _spriteBatch.DrawString(Assets.font, endMessage, new Vector2(winWidth/2 - 9*16/2, 0 + 9*16/1.2f), Color.Red);
+            _spriteBatch.DrawString(Assets.font, "Press E to Restart!", new Vector2(winWidth/2 - 19*16/2, 0 + 19*16), Color.Red);
+        }
+
         _spriteBatch.End();
         
 
         base.Draw(gameTime);
+    }
+
+    static void Restart()
+    {
+        GameOver = false;
+        GameWon = false;
+        Casing.casings.Clear();
+        Shell.shells.Clear();
+        Bullet.bullets.Clear();
+        Enemy.enemies.Clear();
+        player.pos = new Vector2(winWidth/2 - player.width/2, winHeight/2 - player.height/2);
+        Spawner.spawners.Clear();
+        spawner1 = new Spawner(1, 3, 10); // Left
+        spawner2 = new Spawner(2, 3.2f, 12); // Right
+        spawner3 = new Spawner(3, 3.5f, 10); // Up
+        spawner4 = new Spawner(4, 3.6f, 10); // Down
+        Spawner.spawners.Add(spawner1);
+        Spawner.spawners.Add(spawner2);
+        Spawner.spawners.Add(spawner3);
+        Spawner.spawners.Add(spawner4);
+        foreach (Gun gun in Gun.guns)
+        {
+            gun.ammoCount = gun.maxAmmoCount;
+        }
     }
 }

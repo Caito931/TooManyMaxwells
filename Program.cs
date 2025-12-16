@@ -18,8 +18,8 @@ game.Run();
 // Adicionar Tipos de Munição (X)
 // Adicionar Indicador de Vida (X)
 // Consertar o giro da Arma (X)
-// Adicionar Waves
+// Adicionar Waves (X)
 // Adicionar Menu
 // Adicionar ScreenShake
-// Adicionar Vida e Game Over do Doge
+// Adicionar Vida e Game Over do Doge (X)
 // Adicionar Score

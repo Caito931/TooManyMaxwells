@@ -70,6 +70,12 @@ class Shell
                     shells.RemoveAt(i); 
                 }
             }
+
+            // GameOver
+            if (GameRoot.GameOver)
+            {
+                shells.Clear();
+            }
         }
 
     }

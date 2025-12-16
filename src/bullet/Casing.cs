@@ -70,6 +70,12 @@ class Casing
                     casings.RemoveAt(i); 
                 }
             }
+
+            // GameOver
+            if (GameRoot.GameOver)
+            {
+                casings.Clear();
+            }
         }
 
     }

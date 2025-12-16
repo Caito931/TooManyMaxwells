@@ -24,16 +24,9 @@ public class Enemy
     public bool scaleAnimating = false;
     public int scaleDir = 1;
 
-    public Enemy()
+    public Enemy(Vector2 Pos)
     {
-        Vector2 possiblePos1 = new Vector2(-200, new Random().Next(0, GameRoot.winHeight)); // Left
-        Vector2 possiblePos2 = new Vector2(GameRoot.winWidth+200, new Random().Next(0, GameRoot.winHeight)); // Right
-        Vector2 possiblePos3 = new Vector2(new Random().Next(0, GameRoot.winWidth), -200); // Up
-        Vector2 possiblePos4 = new Vector2(new Random().Next(0, GameRoot.winWidth), GameRoot.winHeight+200); // Down
-
-        Vector2[] possiblePositions = [possiblePos1, possiblePos2, possiblePos3, possiblePos4];
-
-        pos = possiblePositions[new Random().Next(0, possiblePositions.Length)];
+        pos = Pos;
         float scale = 0.25f;
         width = 400;
         height = 400;
@@ -116,6 +109,13 @@ public class Enemy
                 (int)enemy.animation.pos.X, (int)enemy.animation.pos.Y, 
                 (int)(enemy.animation.w*enemy.animation.scale), (int)(enemy.animation.h*enemy.animation.scale)
             );
+
+            // GameOver
+            if (GameRoot.dogeHitbox.Intersects(enemy.hitBox))
+            {
+                GameRoot.GameOver = true;
+                GameRoot.endMessage = "You lost!";
+            }
 
             enemy.animation.Update(dt);
             enemy.animation.color = enemy.color;

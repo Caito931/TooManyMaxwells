@@ -75,6 +75,12 @@ public class Bullet
             else if (bullet.pos.Y >= GameRoot.winHeight) { bullets.RemoveAt(i); }
             else if (bullet.pos.Y + bullet.height <= 0) { bullets.RemoveAt(i); }
 
+            // GameOver
+            if (GameRoot.GameOver)
+            {
+                bullets.Clear();
+            }
+
         }
 
     }
