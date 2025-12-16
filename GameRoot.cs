@@ -203,8 +203,6 @@ public class GameRoot : Game
             isFullScreen = !isFullScreen;
             _graphics.IsFullScreen = isFullScreen;
             _graphics.ApplyChanges();
-
-            System.Console.WriteLine("oi");
         }
 
         previousKeyboardState = keyboardState;
