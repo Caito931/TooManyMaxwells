@@ -89,7 +89,7 @@ public class Gun
             Gun.Shoot(this, player, mouseState, previousMouseState);
 
             // Reload
-            if (GameRoot.keyboardState.IsKeyDown(Keys.R) && !GameRoot.previousKeyboardState.IsKeyDown(Keys.R))
+            if (GameRoot.keyboardState.IsKeyDown(Keys.R) && !GameRoot.previousKeyboardState.IsKeyDown(Keys.R) && ammoCount <= 0)
             {
                 ammoCount = maxAmmoCount;
                 Assets.reload.Play();

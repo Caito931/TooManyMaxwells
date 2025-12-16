@@ -9,8 +9,9 @@ public class GameRoot : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
-    public static int winWidth = 1080;
-    public static int winHeight = 720;
+    public static int winWidth = 1920;
+    public static int winHeight = 1080;
+    public static bool isFullScreen = false;
     public static KeyboardState keyboardState;
     public static KeyboardState previousKeyboardState;
     public static MouseState mouseState;
@@ -38,6 +39,9 @@ public class GameRoot : Game
         Window.Title = "Too Many Maxwells";
         _graphics.PreferredBackBufferWidth = winWidth;
         _graphics.PreferredBackBufferHeight = winHeight;
+        // _graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+        // _graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+        _graphics.IsFullScreen = isFullScreen;
         _graphics.ApplyChanges();
 
         base.Initialize();
@@ -154,6 +158,16 @@ public class GameRoot : Game
                     Bullet.bullets.RemoveAt(j);
                 }
             }
+        }
+
+        // Change fullscreen
+        if (keyboardState.IsKeyDown(Keys.F2) && !previousKeyboardState.IsKeyDown(Keys.F2))
+        {
+            isFullScreen = !isFullScreen;
+            _graphics.IsFullScreen = isFullScreen;
+            _graphics.ApplyChanges();
+
+            System.Console.WriteLine("oi");
         }
 
         previousKeyboardState = keyboardState;
