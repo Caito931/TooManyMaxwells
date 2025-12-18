@@ -4,36 +4,46 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/Aa12_S.wav</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/aa12.png</File>
-    <File>/home/caio/Programing/TooManyMaxwells/Content/ak47.png</File>
-    <File>/home/caio/Programing/TooManyMaxwells/Content/ak47(2).png</File>
-    <File>/home/caio/Programing/TooManyMaxwells/Content/ammoIcon.png</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/Awp_S.wav</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/awp.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/background.jpg</File>
-    <File>/home/caio/Programing/TooManyMaxwells/Content/background(2).jpg</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/ball.png</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/Barrett_S.wav</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/barrett.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/bullet.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/casing.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/doge.png</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/Hkg36_S.wav</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/hkg36.png</File>
-    <File>/home/caio/Programing/TooManyMaxwells/Content/m4a1.png</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/Icon.bmp</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/Icon.ico</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/Icon.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/maxwellAtlas.png</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/Mp5_S.wav</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/mp5.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/muzzleFlash.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/reload.wav</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/rifleAmmoIcon.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/Roboto.spritefont</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/Scar_S.wav</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/scar.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/shell.png</File>
-    <File>/home/caio/Programing/TooManyMaxwells/Content/shellIcon.png</File>
-    <File>/home/caio/Programing/TooManyMaxwells/Content/shoot.wav</File>
-    <File>/home/caio/Programing/TooManyMaxwells/Content/shoot2.wav</File>
-    <File>/home/caio/Programing/TooManyMaxwells/Content/shoot3.wav</File>
-    <File>/home/caio/Programing/TooManyMaxwells/Content/shoot4.wav</File>
-    <File>/home/caio/Programing/TooManyMaxwells/Content/shoot5.wav</File>
-    <File>/home/caio/Programing/TooManyMaxwells/Content/shoot6.wav</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/Shotgun_S.wav</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/shotgun.png</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/shotgunAmmoIcon.png</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/smgAmmoIcon.png</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/Vector_S.wav</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/vector.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/walter.png</File>
-    <File>/home/caio/Programing/TooManyMaxwells/Content/walter(2).png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

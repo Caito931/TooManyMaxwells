@@ -40,16 +40,17 @@ public class Gun
     public int damage;
     public static List<Gun> guns;
     public static int gunIndex = 0;
-    public static GunType[] gunTypes = [GunType.Hkg36, GunType.M4a1, GunType.Ak47, GunType.Aa12, GunType.Barrett, GunType.Scar];
+    public static GunType[] gunTypes = [GunType.Hkg36, GunType.Scar, GunType.Mp5, GunType.Vector, GunType.Aa12, GunType.Shotgun, GunType.Awp, GunType.Barrett];
     public int gunTypeIndex = 0;
     public GunType type;
-    public GunMode gunMode;
+    public GunMode mode;
+    public GunCategory category;
     int defaultAmmoBarWidth = 500;
     int defaultAmmoBarHeight = 100;
     
     public static void LoadGuns()
     {
-        guns = [GameRoot.hkg36, GameRoot.m4a1, GameRoot.ak47, GameRoot.aa12, GameRoot.barrett, GameRoot.scar];
+        guns = [GameRoot.hkg36, GameRoot.scar, GameRoot.mp5, GameRoot.vector, GameRoot.aa12, GameRoot.shotgun, GameRoot.awp, GameRoot.barrett];
     }
 
     public virtual void Update(float dt, Player player, MouseState mouseState, MouseState previousMouseState, Vector2 mousePosition)
@@ -185,9 +186,28 @@ public class Gun
     {
         if (selected)
         {
-            Texture2D icon = this.type == GunType.Aa12 ? Assets.shellIcon : Assets.ammoIcon;
-            Color barColor = this.type == GunType.Aa12 ? Color.Red : Color.Yellow;
-
+            Texture2D icon = Assets.whitePixel;
+            Color barColor = Color.White;
+            switch (category)
+            {
+                case GunCategory.Rifle:
+                    icon = Assets.rifleAmmoIcon;
+                    barColor = Color.Yellow;
+                break;
+                case GunCategory.Smg:
+                    icon = Assets.smgAmmoIcon;
+                    barColor = Color.Orange;
+                break;
+                case GunCategory.Shotgun:
+                    icon = Assets.shotgunShellIcon;
+                    barColor = Color.Red;
+                break;
+                case GunCategory.Sniper:
+                    icon = Assets.rifleAmmoIcon;
+                    barColor = Color.Yellow;
+                break;
+            }
+            
             // Back
             spriteBatch.Draw(Assets.whitePixel, new Rectangle(
                 GameRoot.winWidth/2-defaultAmmoBarWidth/2, GameRoot.winHeight - defaultAmmoBarHeight+10, defaultAmmoBarWidth, 50),
@@ -212,56 +232,69 @@ public class Gun
 
     public static void Shoot(Gun gun, Player player, MouseState mouseState, MouseState previousMouseState)
     {
-        if (mouseState.LeftButton == ButtonState.Pressed && gun.shotTimer <= 0 && gun.ammoCount > 0 && gun.gunMode == GunMode.Auto)
+        if (mouseState.LeftButton == ButtonState.Pressed && gun.shotTimer <= 0 && gun.ammoCount > 0 && gun.mode == GunMode.Auto)
         {
             gun.recoilVelocity += RecoilKick;
             gun.shotTimer = gun.shotTime;
             gun.muzzleFlashAngle = new Random().Next(-1, 3);
             gun.ammoCount -= 1;
 
-            if (gun.type == GunType.M4a1)
+            if (gun.type == GunType.Hkg36)
             {
-                Assets.shoot2.Play();
+                Assets.Hkg36.Play();
                 Casing.casings.Add(new Casing(gun));
                 Bullet.bullets.Add(new Bullet(gun, player, Assets.bullet));
             }
-            else if (gun.type == GunType.Ak47)
+            else if (gun.type == GunType.Scar)
             {
-                Assets.shoot.Play();
+                Assets.Scar.Play();
                 Casing.casings.Add(new Casing(gun));
                 Bullet.bullets.Add(new Bullet(gun, player, Assets.bullet));
             }
-            else if (gun.type == GunType.Hkg36)
+            if (gun.type == GunType.Mp5)
             {
-                Assets.shoot3.Play();
+                Assets.Mp5.Play();
+                Casing.casings.Add(new Casing(gun));
+                Bullet.bullets.Add(new Bullet(gun, player, Assets.bullet));
+            }
+            else if (gun.type == GunType.Vector)
+            {
+                Assets.Vector.Play();
                 Casing.casings.Add(new Casing(gun));
                 Bullet.bullets.Add(new Bullet(gun, player, Assets.bullet));
             }
             else if (gun.type == GunType.Aa12)
             {
-                Assets.shoot4.Play();
+                Assets.Aa12.Play();
                 Shell.shells.Add(new Shell(gun));
                 Bullet.bullets.Add(new Bullet(gun, player, Assets.ball));
             }
-            else if (gun.type == GunType.Scar)
-            {
-                Assets.shoot6.Play();
-                Casing.casings.Add(new Casing(gun));
-                Bullet.bullets.Add(new Bullet(gun, player, Assets.bullet));
-            }
+            
         }
-        if (mouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton != ButtonState.Pressed && gun.ammoCount > 0 && gun.gunMode == GunMode.Semi)
+        if (mouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton != ButtonState.Pressed && gun.ammoCount > 0 && gun.mode == GunMode.Semi)
         {
             gun.recoilVelocity += RecoilKick;
             gun.shotTimer = gun.shotTime;
             gun.muzzleFlashAngle = new Random().Next(-1, 3);
             gun.ammoCount -= 1;
 
-            if (gun.type == GunType.Barrett)
+            if (gun.type == GunType.Awp)
             {
-                Assets.shoot5.Play();
+                Assets.Awp.Play();
                 Casing.casings.Add(new Casing(gun));
                 Bullet.bullets.Add(new Bullet(gun, player, Assets.bullet));
+            }
+            else if (gun.type == GunType.Barrett)
+            {
+                Assets.Barrett.Play();
+                Casing.casings.Add(new Casing(gun));
+                Bullet.bullets.Add(new Bullet(gun, player, Assets.bullet));
+            }
+            else if (gun.type == GunType.Shotgun)
+            {
+                Assets.Shotgun.Play();
+                Shell.shells.Add(new Shell(gun));
+                Bullet.bullets.Add(new Bullet(gun, player, Assets.ball));
             }
 
         }
@@ -277,32 +310,50 @@ public class Gun
             case GunType.Hkg36:
                 BarrelLength = 0.55f;
                 Damage = 15;
-                gun.gunMode = GunMode.Auto;
-            break;
-            case GunType.M4a1:
-                BarrelLength = 0.7f;
-                Damage = 12;
-                gun.gunMode = GunMode.Auto;
-            break;
-            case GunType.Ak47:
-                BarrelLength = 0.7f;
-                Damage = 20;
-                gun.gunMode = GunMode.Auto;
-            break;
-            case GunType.Aa12:
-                BarrelLength = 0.55f;
-                Damage = 40;
-                gun.gunMode = GunMode.Auto;
-            break;
-            case GunType.Barrett:
-                BarrelLength = 0.55f;
-                Damage = 50;
-                gun.gunMode = GunMode.Semi;
+                gun.mode = GunMode.Auto;
+                gun.category = GunCategory.Rifle;
             break;
             case GunType.Scar:
                 BarrelLength = 0.55f;
                 Damage = 30;
-                gun.gunMode = GunMode.Auto;
+                gun.mode = GunMode.Auto;
+                gun.category = GunCategory.Rifle;
+            break;
+            case GunType.Mp5:
+                BarrelLength = 0.7f;
+                Damage = 10;
+                gun.mode = GunMode.Auto;
+                gun.category = GunCategory.Smg;
+            break;
+            case GunType.Vector:
+                BarrelLength = 0.7f;
+                Damage = 10;
+                gun.mode = GunMode.Auto;
+                gun.category = GunCategory.Smg;
+            break;
+            case GunType.Aa12:
+                BarrelLength = 0.55f;
+                Damage = 40;
+                gun.mode = GunMode.Auto;
+                gun.category = GunCategory.Shotgun;
+            break;
+            case GunType.Shotgun:
+                BarrelLength = 0.55f;
+                Damage = 50;
+                gun.mode = GunMode.Semi;
+                gun.category = GunCategory.Shotgun;
+            break;
+            case GunType.Awp:
+                BarrelLength = 0.55f;
+                Damage = 60;
+                gun.mode = GunMode.Semi;
+                gun.category = GunCategory.Sniper;
+            break;
+            case GunType.Barrett:
+                BarrelLength = 0.55f;
+                Damage = 50;
+                gun.mode = GunMode.Semi;
+                gun.category = GunCategory.Sniper;
             break;
         }
 
@@ -324,24 +375,34 @@ public class Gun
             gun.ammoCount = 30;
             gun.selected = true;
         }
-        if (gun.type == GunType.M4a1)
+        if (gun.type == GunType.Scar)
         {
-            gun.width = Assets.m4a1.Width/2;
-            gun.height = Assets.m4a1.Height/2;
-            gun.shotTime = 0.06f;
-            gun.damage = 12;
-            gun.maxAmmoCount = 30;
-            gun.ammoCount = 30;
+            gun.width = Assets.scar.Width/2;
+            gun.height = Assets.scar.Height/2;
+            gun.damage = 30;
+            gun.shotTime = 0.09f;
+            gun.maxAmmoCount = 20;
+            gun.ammoCount = 20;
             gun.selected = true;
         }
-        if (gun.type == GunType.Ak47)
+        if (gun.type == GunType.Mp5)
         {
-            gun.width = Assets.ak47.Width/2;
-            gun.height = Assets.ak47.Height/2;
-            gun.shotTime = 0.1f;
-            gun.damage = 20;
-            gun.maxAmmoCount = 30;
-            gun.ammoCount = 30;
+            gun.width = Assets.mp5.Width/2;
+            gun.height = Assets.mp5.Height/2;
+            gun.shotTime = 0.066f;
+            gun.damage = 12;
+            gun.maxAmmoCount = 50;
+            gun.ammoCount = 50;
+            gun.selected = true;
+        }
+        if (gun.type == GunType.Vector)
+        {
+            gun.width = Assets.vector.Width/2;
+            gun.height = Assets.vector.Height/2;
+            gun.shotTime = 0.05f;
+            gun.damage = 12;
+            gun.maxAmmoCount = 40;
+            gun.ammoCount = 40;
             gun.selected = true;
         }
         if (gun.type == GunType.Aa12)
@@ -354,6 +415,26 @@ public class Gun
             gun.ammoCount = 20;
             gun.selected = true;
         }
+        if (gun.type == GunType.Shotgun)
+        {
+            gun.width = Assets.shotgun.Width/2;
+            gun.height = Assets.shotgun.Height/2;
+            gun.shotTime = 0.2f;
+            gun.damage = 50;
+            gun.maxAmmoCount = 8;
+            gun.ammoCount = 8;
+            gun.selected = true;
+        }
+        if (gun.type == GunType.Awp)
+        {
+            gun.width = Assets.awp.Width/2;
+            gun.height = Assets.awp.Height/2;
+            gun.damage = 100;
+            gun.shotTime = 0.2f;
+            gun.maxAmmoCount = 5;
+            gun.ammoCount = 5;
+            gun.selected = true;
+        }
         if (gun.type == GunType.Barrett)
         {
             gun.width = Assets.barrett.Width/2;
@@ -364,17 +445,6 @@ public class Gun
             gun.ammoCount = 5;
             gun.selected = true;
         }
-        if (gun.type == GunType.Scar)
-        {
-            gun.width = Assets.scar.Width/2;
-            gun.height = Assets.scar.Height/2;
-            gun.damage = 30;
-            gun.shotTime = 0.09f;
-            gun.maxAmmoCount = 20;
-            gun.ammoCount = 20;
-            gun.selected = true;
-        }
-
 
     }
 
@@ -388,18 +458,27 @@ public class Gun
             gun.pos.X + gun.direction.X * gun.barrelLength * 1.5f,
             gun.pos.Y + gun.direction.Y * gun.barrelLength * 1.5f - 10);
         }
-        if (gun.type == GunType.M4a1)
+        if (gun.type == GunType.Scar)
         {
-            gun.drawTexture = Assets.m4a1;
+            gun.drawTexture = Assets.scar;
             gun.barrelLength = gun.width/2f * 0.7f;
             gun.muzzlePos =  new Vector2(
-                gun.pos.X + gun.direction.X * gun.barrelLength * 1.5f + 8,
-                gun.pos.Y + gun.direction.Y * gun.barrelLength * 1.5f - 12
+                gun.pos.X + gun.direction.X * gun.barrelLength * 1.5f,
+                gun.pos.Y + gun.direction.Y * gun.barrelLength * 1.5f - 10
             );
         }
-        if (gun.type == GunType.Ak47)
+        if (gun.type == GunType.Mp5)
         {
-            gun.drawTexture = Assets.ak47;
+            gun.drawTexture = Assets.mp5;
+            gun.barrelLength = gun.width/2f * 0.7f;
+            gun.muzzlePos =  new Vector2(
+                gun.pos.X + gun.direction.X * gun.barrelLength * 1.5f,
+                gun.pos.Y + gun.direction.Y * gun.barrelLength * 1.5f - 20
+            );
+        }
+        if (gun.type == GunType.Vector)
+        {
+            gun.drawTexture = Assets.vector;
             gun.barrelLength = gun.width/2f * 0.7f;
             gun.muzzlePos =  new Vector2(
                 gun.pos.X + gun.direction.X * gun.barrelLength * 1.5f,
@@ -415,6 +494,24 @@ public class Gun
                 gun.pos.Y + gun.direction.Y * gun.barrelLength * 1.5f - 10
             );
         }
+        if (gun.type == GunType.Shotgun)
+        {
+            gun.drawTexture = Assets.shotgun;
+            gun.barrelLength = gun.width/2f * 0.55f;
+            gun.muzzlePos =  new Vector2(
+                gun.pos.X + gun.direction.X * gun.barrelLength * 1.5f,
+                gun.pos.Y + gun.direction.Y * gun.barrelLength * 1.5f - 10
+            );
+        }
+        if (gun.type == GunType.Awp)
+        {
+            gun.drawTexture = Assets.awp;
+            gun.barrelLength = gun.width/2f * 0.6f;
+            gun.muzzlePos =  new Vector2(
+                gun.pos.X + gun.direction.X * gun.barrelLength * 1.5f,
+                gun.pos.Y + gun.direction.Y * gun.barrelLength * 1.5f 
+            );
+        }
         if (gun.type == GunType.Barrett)
         {
             gun.drawTexture = Assets.barrett;
@@ -424,30 +521,32 @@ public class Gun
                 gun.pos.Y + gun.direction.Y * gun.barrelLength * 1.5f 
             );
         }
-        if (gun.type == GunType.Scar)
-        {
-            gun.drawTexture = Assets.scar;
-            gun.barrelLength = gun.width/2f * 0.7f;
-            gun.muzzlePos =  new Vector2(
-                gun.pos.X + gun.direction.X * gun.barrelLength * 1.5f,
-                gun.pos.Y + gun.direction.Y * gun.barrelLength * 1.5f - 10
-            );
-        }
+        
     }
     
     public enum GunType
     {
-        Ak47,
-        M4a1,
         Hkg36,
+        Scar,
+        Mp5,
+        Vector,
         Aa12,
-        Barrett,
-        Scar
+        Shotgun,
+        Awp,
+        Barrett
     }
 
     public enum GunMode
     {
         Auto,
         Semi
+    }
+
+    public enum GunCategory
+    {
+        Rifle,
+        Smg,
+        Shotgun,
+        Sniper
     }
 }

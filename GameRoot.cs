@@ -23,12 +23,14 @@ public class GameRoot : Game
     public static Player player;
 
     public static Gun hkg36;
-    public static Gun m4a1;
-    public static Gun ak47;
-    public static Gun aa12;
-    public static Gun barrett;
     public static Gun scar;
-
+    public static Gun mp5;
+    public static Gun vector;
+    public static Gun aa12;
+    public static Gun shotgun;
+    public static Gun awp;
+    public static Gun barrett;
+    
     public static Spawner spawner1;
     public static Spawner spawner2;
     public static Spawner spawner3;
@@ -74,20 +76,26 @@ public class GameRoot : Game
         // Hkg36
         hkg36 = new Hkg36();
 
-        // M4a1
-        m4a1 = new M4a1();
+        // Scar
+        scar = new Scar();
 
-        // Ak47
-        ak47 = new Ak47();
+        // Mp5
+        mp5 = new Mp5();
+
+        // Vector
+        vector = new Vector();
 
         // Aa12
         aa12 = new Aa12();
 
+        // Shotgun
+        shotgun = new Shotgun();
+
+        // Awp
+        awp = new Awp();
+
         // Barrett
         barrett = new Barrett();
-
-        // Scar
-        scar = new Scar();
 
         // Guns
         Gun.LoadGuns();
@@ -210,7 +218,7 @@ public class GameRoot : Game
         _spriteBatch.Begin();
 
         // Background
-        _spriteBatch.Draw(Assets.background2, new Rectangle(0,0, winWidth, winHeight), Color.White);
+        _spriteBatch.Draw(Assets.background, new Rectangle(0,0, winWidth, winHeight), Color.White);
 
         // Casing
         Casing.Draw(_spriteBatch);

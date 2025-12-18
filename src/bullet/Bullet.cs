@@ -15,7 +15,7 @@ public class Bullet
     public Rectangle hitBox;
     public Vector2 pos;
     public Vector2 velocity;
-    public float speed = 2000f;
+    public float speed;
     public float width;
     public float height;
     public Vector2 direction;
@@ -26,20 +26,26 @@ public class Bullet
 
     public Bullet(Gun gun, Player player, Texture2D Texture)
     {
-        if (gun.type == Gun.GunType.Hkg36 ||
-            gun.type == Gun.GunType.M4a1 ||
-            gun.type == Gun.GunType.Ak47 ||
-            gun.type == Gun.GunType.Barrett ||
-            gun.type == Gun.GunType.Scar)
+        if (gun.category == Gun.GunCategory.Rifle)
         {
             bulletType = BulletType.Rifle;
+            speed = 2000f;
         }
-        else
+        else if (gun.category == Gun.GunCategory.Smg)
+        {
+            bulletType = BulletType.Smg;
+            speed = 1500f;
+        }
+        else if (gun.category == Gun.GunCategory.Shotgun)
         {
             bulletType = BulletType.Shotgun;
+            speed = 1000f;
         }
-
-        if (bulletType == BulletType.Shotgun) { speed = 1000f; } // Change this system later
+        else if (gun.category == Gun.GunCategory.Sniper)
+        {
+            bulletType = BulletType.Sniper;
+            speed = 2500f;
+        }
 
         texture = Texture;
         direction = gun.direction;
@@ -108,6 +114,8 @@ public class Bullet
     public enum BulletType
     {
         Rifle,
-        Shotgun
+        Smg,
+        Shotgun,
+        Sniper,
     }
 }

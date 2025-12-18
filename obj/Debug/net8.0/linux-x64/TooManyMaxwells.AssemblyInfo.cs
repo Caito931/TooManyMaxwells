@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TooManyMaxwells")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+47ef67a3317797a675f42a8fd1a3eda294d748fd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ebc547c83477ce5e337fd04b7e2caa07565753f")]
 [assembly: System.Reflection.AssemblyProductAttribute("TooManyMaxwells")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TooManyMaxwells")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
