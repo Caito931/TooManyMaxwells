@@ -23,6 +23,7 @@
     <File>/home/caio/Programing/TooManyMaxwells/Content/Roboto.spritefont</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/scar.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/shell.png</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/shellIcon.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/shoot.wav</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/shoot2.wav</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/shoot3.wav</File>
@@ -33,6 +34,7 @@
     <File>/home/caio/Programing/TooManyMaxwells/Content/walter(2).png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

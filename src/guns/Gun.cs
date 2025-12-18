@@ -185,24 +185,26 @@ public class Gun
     {
         if (selected)
         {
+            Texture2D icon = this.type == GunType.Aa12 ? Assets.shellIcon : Assets.ammoIcon;
+            Color barColor = this.type == GunType.Aa12 ? Color.Red : Color.Yellow;
+
             // Back
             spriteBatch.Draw(Assets.whitePixel, new Rectangle(
                 GameRoot.winWidth/2-defaultAmmoBarWidth/2, GameRoot.winHeight - defaultAmmoBarHeight+10, defaultAmmoBarWidth, 50),
                 Color.Black
             );
 
-
             // Front
             spriteBatch.Draw(Assets.whitePixel, new Rectangle(
                 GameRoot.winWidth/2-defaultAmmoBarWidth/2, GameRoot.winHeight - defaultAmmoBarHeight+10, ammoCount*defaultAmmoBarWidth/maxAmmoCount, 50),
-                Color.Yellow
+                barColor
             );
             
             // Icon
             spriteBatch.Draw(
-                Assets.ammoIcon, 
-                new Vector2(GameRoot.winWidth/2-defaultAmmoBarWidth/2-Assets.ammoIcon.Width, 
-                GameRoot.winHeight - defaultAmmoBarHeight+10 - Assets.ammoIcon.Height/2),
+                icon, 
+                new Vector2(GameRoot.winWidth/2-defaultAmmoBarWidth/2-icon.Width/1.1f, 
+                GameRoot.winHeight - defaultAmmoBarHeight+10 - icon.Height/2),
                 Color.White
             );
         }

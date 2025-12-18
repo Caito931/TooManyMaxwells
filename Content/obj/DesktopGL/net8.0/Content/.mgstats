@@ -18,6 +18,7 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "/home/caio/Programing/TooManyMaxwells/Content/Roboto.spritefont","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/Roboto.xnb","FontDescriptionProcessor","SpriteFontContent",2009,70681,0.2275301
 "/home/caio/Programing/TooManyMaxwells/Content/scar.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/scar.xnb","TextureProcessor","Texture2DContent",35876,179605,0.1350402
 "/home/caio/Programing/TooManyMaxwells/Content/shell.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/shell.xnb","TextureProcessor","Texture2DContent",1985,3885,0.1288591
+"/home/caio/Programing/TooManyMaxwells/Content/shellIcon.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/shellIcon.xnb","TextureProcessor","Texture2DContent",25960,93085,0.1348223
 "/home/caio/Programing/TooManyMaxwells/Content/shoot.wav","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/shoot.xnb","SoundEffectProcessor","SoundEffectContent",85344,85405,0.1645305
 "/home/caio/Programing/TooManyMaxwells/Content/shoot2.wav","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/shoot2.xnb","SoundEffectProcessor","SoundEffectContent",41948,42009,0.1429583
 "/home/caio/Programing/TooManyMaxwells/Content/shoot3.wav","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/shoot3.xnb","SoundEffectProcessor","SoundEffectContent",136700,136761,0.0701153

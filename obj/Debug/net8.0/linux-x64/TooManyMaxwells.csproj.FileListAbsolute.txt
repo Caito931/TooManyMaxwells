@@ -229,3 +229,4 @@
 /home/caio/Programing/TooManyMaxwells/obj/Debug/net8.0/linux-x64/TooManyMaxwells.genruntimeconfig.cache
 /home/caio/Programing/TooManyMaxwells/obj/Debug/net8.0/linux-x64/ref/TooManyMaxwells.dll
 /home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/linux-x64/Content/ammoIcon.xnb
+/home/caio/Programing/TooManyMaxwells/bin/Debug/net8.0/linux-x64/Content/shellIcon.xnb

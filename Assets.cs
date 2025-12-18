@@ -31,6 +31,7 @@ public class Assets
     public static Texture2D muzzleFlash;
     public static Texture2D doge;
     public static Texture2D ammoIcon;
+    public static Texture2D shellIcon;
 
     // List SoundEffect
     public static List<SoundEffect> sounds = new List<SoundEffect>();
@@ -66,25 +67,20 @@ public class Assets
         muzzleFlash = Content.Load<Texture2D>("muzzleFlash");
         doge = Content.Load<Texture2D>("doge");
         ammoIcon = Content.Load<Texture2D>("ammoIcon");
+        shellIcon = Content.Load<Texture2D>("shellIcon");
 
-        textures.Add(background);
-        textures.Add(background2);
-        textures.Add(walter);
-        textures.Add(maxwellAtlas);
-        textures.Add(ak47);
-        textures.Add(m4a1);
-        textures.Add(hkg36);
-        textures.Add(aa12);
-        textures.Add(barrett);
-        textures.Add(scar);
-        textures.Add(bullet);
-        textures.Add(casing);
-        textures.Add(ball);
-        textures.Add(shell);
-        textures.Add(muzzleFlash);
-        textures.Add(doge);
-        textures.Add(ammoIcon);
-
+        textures.AddRange(
+            new List<Texture2D>(){
+                background, background2, walter, maxwellAtlas, 
+                ak47, m4a1, hkg36, aa12, barrett, scar, 
+                bullet, casing, 
+                ball, shell, 
+                muzzleFlash, 
+                doge,
+                ammoIcon, shellIcon
+            }
+        );
+        
         shoot = Content.Load<SoundEffect>("shoot");
         shoot2 = Content.Load<SoundEffect>("shoot2");
         shoot3 = Content.Load<SoundEffect>("shoot3");
@@ -93,13 +89,13 @@ public class Assets
         shoot6 = Content.Load<SoundEffect>("shoot6");
         reload = Content.Load<SoundEffect>("reload");
 
-        sounds.Add(shoot);
-        sounds.Add(shoot2);
-        sounds.Add(shoot3);
-        sounds.Add(shoot4);
-        sounds.Add(shoot5);
-        sounds.Add(shoot6);
-        sounds.Add(reload);
+        sounds.AddRange(
+            new List<SoundEffect>()
+            {
+                shoot, shoot2, shoot3, shoot4, shoot5, shoot6,
+                reload
+            }
+        );
 
         whitePixel = new Texture2D(graphicsDevice, 1, 1);
         whitePixel.SetData([Color.White]);

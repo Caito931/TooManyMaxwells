@@ -241,10 +241,10 @@ public class GameRoot : Game
         foreach (Gun gun in Gun.guns) { gun.DrawUi(_spriteBatch); }
 
         // Press F1
-        _spriteBatch.DrawString(Assets.font, "Press F1 to Switch gun", new Vector2(255, GameRoot.winHeight - 50), Color.White);
+        _spriteBatch.DrawString(Assets.font, "Press F1 to Switch gun", new Vector2(15, GameRoot.winHeight - 100), Color.White);
 
         // Press R
-        _spriteBatch.DrawString(Assets.font, "Press R to reload", new Vector2(725, GameRoot.winHeight - 50), Color.White);
+        _spriteBatch.DrawString(Assets.font, "Press R to reload", new Vector2(15, GameRoot.winHeight - 50), Color.White);
 
         // You Lost!
         if (GameOver || GameWon)
@@ -272,7 +272,7 @@ public class GameRoot : Game
         Enemy.enemies.Clear();
 
         player.pos = new Vector2(winWidth/2 - player.width/2, winHeight/2 - player.height/2);
-        
+
         foreach (Gun gun in Gun.guns)
         {
             gun.ammoCount = gun.maxAmmoCount;
