@@ -30,6 +30,7 @@ public class Assets
     public static Texture2D shell;
     public static Texture2D muzzleFlash;
     public static Texture2D doge;
+    public static Texture2D ammoIcon;
 
     // List SoundEffect
     public static List<SoundEffect> sounds = new List<SoundEffect>();
@@ -64,6 +65,7 @@ public class Assets
         shell = Content.Load<Texture2D>("shell");
         muzzleFlash = Content.Load<Texture2D>("muzzleFlash");
         doge = Content.Load<Texture2D>("doge");
+        ammoIcon = Content.Load<Texture2D>("ammoIcon");
 
         textures.Add(background);
         textures.Add(background2);
@@ -81,6 +83,7 @@ public class Assets
         textures.Add(shell);
         textures.Add(muzzleFlash);
         textures.Add(doge);
+        textures.Add(ammoIcon);
 
         shoot = Content.Load<SoundEffect>("shoot");
         shoot2 = Content.Load<SoundEffect>("shoot2");

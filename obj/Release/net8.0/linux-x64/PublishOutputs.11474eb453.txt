@@ -25,6 +25,4 @@
 /home/caio/Programing/TooManyMaxwells/bin/Release/net8.0/linux-x64/publish/Content/shoot6.xnb
 /home/caio/Programing/TooManyMaxwells/bin/Release/net8.0/linux-x64/publish/Content/walter(2).xnb
 /home/caio/Programing/TooManyMaxwells/bin/Release/net8.0/linux-x64/publish/Content/walter.xnb
-/home/caio/Programing/TooManyMaxwells/bin/Release/net8.0/linux-x64/publish/libopenal.so
-/home/caio/Programing/TooManyMaxwells/bin/Release/net8.0/linux-x64/publish/libSDL2-2.0.so.0
 /home/caio/Programing/TooManyMaxwells/bin/Release/net8.0/linux-x64/publish/TooManyMaxwells

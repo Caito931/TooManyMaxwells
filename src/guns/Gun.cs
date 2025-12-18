@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Reflection.PortableExecutable;
 using System.Runtime.ConstrainedExecution;
 using System.Security.Principal;
 using Microsoft.Xna.Framework;
@@ -43,6 +44,8 @@ public class Gun
     public int gunTypeIndex = 0;
     public GunType type;
     public GunMode gunMode;
+    int defaultAmmoBarWidth = 500;
+    int defaultAmmoBarHeight = 100;
     
     public static void LoadGuns()
     {
@@ -175,9 +178,33 @@ public class Gun
                     0f
                 );
             }
+        }
+    }
 
-            // Ammo
-            spriteBatch.DrawString(Assets.font, $"Ammo: {ammoCount}", new Vector2(15, GameRoot.winHeight - 50), Color.White);
+    public virtual void DrawUi(SpriteBatch spriteBatch)
+    {
+        if (selected)
+        {
+            // Back
+            spriteBatch.Draw(Assets.whitePixel, new Rectangle(
+                GameRoot.winWidth/2-defaultAmmoBarWidth/2, GameRoot.winHeight - defaultAmmoBarHeight+10, defaultAmmoBarWidth, 50),
+                Color.Black
+            );
+
+
+            // Front
+            spriteBatch.Draw(Assets.whitePixel, new Rectangle(
+                GameRoot.winWidth/2-defaultAmmoBarWidth/2, GameRoot.winHeight - defaultAmmoBarHeight+10, ammoCount*defaultAmmoBarWidth/maxAmmoCount, 50),
+                Color.Yellow
+            );
+            
+            // Icon
+            spriteBatch.Draw(
+                Assets.ammoIcon, 
+                new Vector2(GameRoot.winWidth/2-defaultAmmoBarWidth/2-Assets.ammoIcon.Width, 
+                GameRoot.winHeight - defaultAmmoBarHeight+10 - Assets.ammoIcon.Height/2),
+                Color.White
+            );
         }
     }
 

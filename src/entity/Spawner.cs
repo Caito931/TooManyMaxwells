@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using TooManyMaxwells;
@@ -61,17 +62,21 @@ public class Spawner
 
             spawner.Update(dt);
         }
-        foreach (Spawner s in spawners)
+        bool allInactive = true;
+
+        foreach (var s in spawners)
         {
             if (s.active)
             {
-                
+                allInactive = false;
+                break;
             }
-            else if (!s.active && Enemy.enemies.Count <= 0)
-            {
-                GameRoot.GameWon = true;
-                GameRoot.endMessage = "You won!!";
-            }
+        }
+
+        if (allInactive && Enemy.enemies.Count <= 0 && !GameRoot.GameWon)
+        {
+            GameRoot.GameWon = true;
+            GameRoot.endMessage = "You won!!";
         }
     }
 
@@ -87,5 +92,58 @@ public class Spawner
         return Pos;
     }
 
+    public enum Sets
+    {
+        Easy, Medium, Hard
+    }
+
+    public static List<Spawner> CreateEasySet()
+    {
+        return new List<Spawner>()
+        {
+            new Spawner(1, 4, 5), // Left
+            new Spawner(2, 4.2f, 6), // Right
+            new Spawner(3, 4.5f, 5), // Up
+            new Spawner(4, 4.6f, 5) // Down
+        };
+    }
+    public static List<Spawner> CreateMediumSet()
+    {
+        return new List<Spawner>()
+        {
+            new Spawner(1, 3, 8), // Left
+            new Spawner(2, 3.2f, 10), // Right
+            new Spawner(3, 3.5f, 8), // Up
+            new Spawner(4, 3.6f, 8) // Down
+        };
+    }
+    public static List<Spawner> CreateHardSet()
+    {
+        return new List<Spawner>()
+        {
+            new Spawner(1, 2.8f, 10), // Left
+            new Spawner(2, 3f, 12), // Right
+            new Spawner(3, 3.3f, 10), // Up
+            new Spawner(4, 3.3f, 10) // Down
+        };
+    }
+
+    public static void SetDifficulty(List<Spawner> spawners, Sets set)
+    {
+        spawners.Clear();
+
+        switch (set)
+        {
+            case Sets.Easy:
+                spawners.AddRange(CreateEasySet());
+                break;
+            case Sets.Medium:
+                spawners.AddRange(CreateMediumSet());
+                break;
+            case Sets.Hard:
+                spawners.AddRange(CreateHardSet());
+                break;
+        }
+    }
 
 }

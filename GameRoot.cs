@@ -93,16 +93,7 @@ public class GameRoot : Game
         Gun.LoadGuns();
 
         // Spawners
-        spawner1 = new Spawner(1, 3, 10); // Left
-        spawner2 = new Spawner(2, 3.2f, 12); // Right
-        spawner3 = new Spawner(3, 3.5f, 10); // Up
-        spawner4 = new Spawner(4, 3.6f, 10); // Down
-        Spawner.spawners.Add(spawner1);
-        Spawner.spawners.Add(spawner2);
-        Spawner.spawners.Add(spawner3);
-        Spawner.spawners.Add(spawner4);
-
-        // TODO: use this.Content to load your game content here
+        Spawner.SetDifficulty(Spawner.spawners, Spawner.Sets.Easy);
     }
 
     protected override void Dispose(bool disposing)
@@ -242,6 +233,13 @@ public class GameRoot : Game
         // Doge
         _spriteBatch.Draw(Assets.doge, new Vector2(winWidth/2 - Assets.doge.Width/2, winHeight/2 - Assets.doge.Height/2), Color.White);
 
+        //-------------------------
+
+        // UI
+        
+        // Gun UI
+        foreach (Gun gun in Gun.guns) { gun.DrawUi(_spriteBatch); }
+
         // Press F1
         _spriteBatch.DrawString(Assets.font, "Press F1 to Switch gun", new Vector2(255, GameRoot.winHeight - 50), Color.White);
 
@@ -263,22 +261,18 @@ public class GameRoot : Game
 
     static void Restart()
     {
+        Spawner.SetDifficulty(Spawner.spawners, Spawner.Sets.Easy);
+
         GameOver = false;
         GameWon = false;
+
         Casing.casings.Clear();
         Shell.shells.Clear();
         Bullet.bullets.Clear();
         Enemy.enemies.Clear();
+
         player.pos = new Vector2(winWidth/2 - player.width/2, winHeight/2 - player.height/2);
-        Spawner.spawners.Clear();
-        spawner1 = new Spawner(1, 3, 10); // Left
-        spawner2 = new Spawner(2, 3.2f, 12); // Right
-        spawner3 = new Spawner(3, 3.5f, 10); // Up
-        spawner4 = new Spawner(4, 3.6f, 10); // Down
-        Spawner.spawners.Add(spawner1);
-        Spawner.spawners.Add(spawner2);
-        Spawner.spawners.Add(spawner3);
-        Spawner.spawners.Add(spawner4);
+        
         foreach (Gun gun in Gun.guns)
         {
             gun.ammoCount = gun.maxAmmoCount;
@@ -286,5 +280,5 @@ public class GameRoot : Game
     }
 }
 
-// dotnet publish -c Release -r linux-x64 --self-contained true
+// dotnet publish -c Release -r linux-x64 --self-contained true 
 // dotnet publish -c Release -r win-x64

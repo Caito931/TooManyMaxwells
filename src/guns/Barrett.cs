@@ -29,4 +29,11 @@ public class Barrett : Gun
 
         // Do here another stuff
     }
+
+    public override void DrawUi(SpriteBatch spriteBatch)
+    {
+        base.DrawUi(spriteBatch);
+
+        // Do here another stuff
+    }
 }

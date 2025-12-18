@@ -2,6 +2,7 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "/home/caio/Programing/TooManyMaxwells/Content/aa12.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/aa12.xnb","TextureProcessor","Texture2DContent",15001,115445,0.1325149
 "/home/caio/Programing/TooManyMaxwells/Content/ak47.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/ak47.xnb","TextureProcessor","Texture2DContent",41248,179485,0.1340935
 "/home/caio/Programing/TooManyMaxwells/Content/ak47(2).png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/ak47(2).xnb","TextureProcessor","Texture2DContent",43040,196885,0.1425472
+"/home/caio/Programing/TooManyMaxwells/Content/ammoIcon.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/ammoIcon.xnb","TextureProcessor","Texture2DContent",22412,76285,0.1727887
 "/home/caio/Programing/TooManyMaxwells/Content/background.jpg","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/background.xnb","TextureProcessor","Texture2DContent",783690,6822485,0.3098125
 "/home/caio/Programing/TooManyMaxwells/Content/background(2).jpg","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/background(2).xnb","TextureProcessor","Texture2DContent",5630541,65194677,2.250268
 "/home/caio/Programing/TooManyMaxwells/Content/ball.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/ball.xnb","TextureProcessor","Texture2DContent",9508,24405,0.0032974

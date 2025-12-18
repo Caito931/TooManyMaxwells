@@ -7,6 +7,7 @@
     <File>/home/caio/Programing/TooManyMaxwells/Content/aa12.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/ak47.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/ak47(2).png</File>
+    <File>/home/caio/Programing/TooManyMaxwells/Content/ammoIcon.png</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/background.jpg</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/background(2).jpg</File>
     <File>/home/caio/Programing/TooManyMaxwells/Content/ball.png</File>
@@ -32,6 +33,7 @@
     <File>/home/caio/Programing/TooManyMaxwells/Content/walter(2).png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
