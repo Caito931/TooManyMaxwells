@@ -290,3 +290,22 @@ public class GameRoot : Game
 
 // dotnet publish -c Release -r linux-x64 --self-contained true 
 // dotnet publish -c Release -r win-x64
+
+/*
+dotnet publish \
+-c Release \
+-r linux-x64 \
+--self-contained true \
+/p:PublishSingleFile=true \
+/p:IncludeNativeLibrariesForSelfExtract=true
+
+cp bin/Release/net8.0/linux-x64/publish/TooManyMaxwells \
+   TooManyMaxwells.AppDir/usr/bin/TooManyMaxwells
+
+chmod +x TooManyMaxwells.AppDir/usr/bin/TooManyMaxwells
+
+rm -rf TooManyMaxwells.AppDir/usr/bin/Content
+cp -r Content TooManyMaxwells.AppDir/usr/bin/
+
+ARCH=x86_64 ./appimagetool-x86_64.AppImage TooManyMaxwells.AppDir
+*/

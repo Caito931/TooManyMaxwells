@@ -12,9 +12,9 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "/home/caio/Programing/TooManyMaxwells/Content/doge.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/doge.xnb","TextureProcessor","Texture2DContent",9566,26885,0.0038809
 "/home/caio/Programing/TooManyMaxwells/Content/Hkg36_S.wav","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/Hkg36_S.xnb","SoundEffectProcessor","SoundEffectContent",136700,136761,0.051659
 "/home/caio/Programing/TooManyMaxwells/Content/hkg36.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/hkg36.xnb","TextureProcessor","Texture2DContent",31389,170005,0.0076009
-"/home/caio/Programing/TooManyMaxwells/Content/Icon.bmp","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/Icon.xnb","TextureProcessor","Texture2DContent",262282,262229,0.1404135
-"/home/caio/Programing/TooManyMaxwells/Content/Icon.ico","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/Icon.xnb","TextureProcessor","Texture2DContent",96800,262229,0.0218019
-"/home/caio/Programing/TooManyMaxwells/Content/Icon.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/Icon.xnb","TextureProcessor","Texture2DContent",296385,1000085,0.0587847
+"/home/caio/Programing/TooManyMaxwells/Content/Icon.bmp","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/Icon.xnb","TextureProcessor","Texture2DContent",262282,262229,0.1782806
+"/home/caio/Programing/TooManyMaxwells/Content/Icon.ico","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/Icon.xnb","TextureProcessor","Texture2DContent",96800,262229,0.0287064
+"/home/caio/Programing/TooManyMaxwells/Content/Icon.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/Icon.xnb","TextureProcessor","Texture2DContent",296385,1000085,0.083726
 "/home/caio/Programing/TooManyMaxwells/Content/maxwellAtlas.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/maxwellAtlas.xnb","TextureProcessor","Texture2DContent",2104755,8960085,0.3044563
 "/home/caio/Programing/TooManyMaxwells/Content/Mp5_S.wav","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/Mp5_S.xnb","SoundEffectProcessor","SoundEffectContent",83076,83137,0.034467
 "/home/caio/Programing/TooManyMaxwells/Content/mp5.png","/home/caio/Programing/TooManyMaxwells/Content/bin/DesktopGL/Content/mp5.xnb","TextureProcessor","Texture2DContent",27917,143125,0.0058964
